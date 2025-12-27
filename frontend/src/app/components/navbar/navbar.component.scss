@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 20px;
+}
+
+.logo {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  margin-right: 10px;
+  font-weight: 300;
+}
+
+// Responsividad para móvil
+@media (max-width: 600px) {
+  .user-name {
+    display: none; // Ocultar nombre en móviles muy pequeños para ahorrar espacio
+  }
+}

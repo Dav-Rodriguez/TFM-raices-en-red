@@ -1,1 +1,57 @@
-<p>dashboard-comunidad works!</p>
+<div class="dashboard-container">
+  <header class="hero-banner">
+    <div class="overlay">
+      <h1>Bienvenido, {{ user?.names }}</h1>
+      <p>
+        Gestiona tus publicaciones y revisa las propuestas de los profesionales.
+      </p>
+    </div>
+  </header>
+
+  <div class="content-padding">
+    <mat-card class="profile-card">
+      <div class="profile-layout">
+        <div class="profile-info">
+          <h3>{{ user?.names }} {{ user?.lastnames }}</h3>
+          <p><strong>Comunidad:</strong> {{ user?.communityName }}</p>
+          <p class="description">
+            Líder comunitario enfocado en el desarrollo sostenible.
+          </p>
+          <button mat-stroked-button color="accent">Actualizar perfil</button>
+        </div>
+        <div class="profile-image">
+          <img src="assets/avatar-placeholder.png" alt="Perfil" />
+        </div>
+      </div>
+    </mat-card>
+
+    <div class="action-buttons">
+      <button mat-raised-button color="primary" class="action-btn">
+        <mat-icon>add</mat-icon> Crear publicación
+      </button>
+      <button mat-raised-button class="action-btn repo-btn">
+        <mat-icon>library_books</mat-icon> Repositorio SbN
+      </button>
+    </div>
+
+    <section class="section-container">
+      <h4>Tus Publicaciones</h4>
+      <mat-card class="item-card">
+        <div class="item-layout">
+          <img
+            src="assets/problem-thumb.jpg"
+            class="thumbnail"
+            alt="Problema"
+          />
+          <div class="item-text">
+            <h5>Escasez de agua en sector alto</h5>
+            <p>Necesitamos soluciones técnicas para recolección de lluvia...</p>
+            <button mat-button color="primary" class="edit-btn">
+              Modificar
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </section>
+  </div>
+</div>

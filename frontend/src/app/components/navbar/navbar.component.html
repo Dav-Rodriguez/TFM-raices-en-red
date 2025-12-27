@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="logo" routerLink="/">Raíces en Red</span>
+
+  <span class="spacer"></span>
+
+  <span *ngIf="authService.isLoggedIn()" class="user-name">
+    Hola, {{ user?.names }}
+  </span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <ng-container *ngIf="!authService.isLoggedIn()">
+      <button mat-menu-item routerLink="/login">Iniciar Sesión</button>
+      <button mat-menu-item routerLink="/register">Registrarse</button>
+      <button mat-menu-item>Repositorio SBN</button>
+      <button mat-menu-item>Presentación Proyecto</button>
+    </ng-container>
+
+    <ng-container *ngIf="authService.isLoggedIn() && isComunidad">
+      <button mat-menu-item routerLink="/dashboard-comunidad">Mi Panel</button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar Sesión</span>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="authService.isLoggedIn() && isProfesional">
+      <button mat-menu-item routerLink="/dashboard-profesional">
+        Mi Panel
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar Sesión</span>
+      </button>
+    </ng-container>
+  </mat-menu>
+</mat-toolbar>

@@ -1,1 +1,76 @@
-<p>register works!</p>
+<div class="register-container">
+  <mat-card class="register-card">
+    <mat-card-header>
+      <mat-card-title>Crear Cuenta</mat-card-title>
+      <mat-card-subtitle>Únete a Raíces en Red</mat-card-subtitle>
+    </mat-card-header>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <mat-card-content>
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombres</mat-label>
+            <input matInput formControlName="names" placeholder="Ej. Juan" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Apellidos</mat-label>
+            <input
+              matInput
+              formControlName="lastnames"
+              placeholder="Ej. Pérez"
+            />
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Correo Electrónico</mat-label>
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            placeholder="ejemplo@correo.com"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="password" />
+          <mat-hint>Mínimo 6 caracteres</mat-hint>
+        </mat-form-field>
+
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Rol</mat-label>
+            <mat-select formControlName="role">
+              <mat-option value="comunidad">Comunidad</mat-option>
+              <mat-option value="profesional">Profesional</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Ciudad</mat-label>
+            <input matInput formControlName="city" />
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nombre de la Comunidad / Organización</mat-label>
+          <input matInput formControlName="communityName" />
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="registerForm.invalid"
+        >
+          REGISTRARSE
+        </button>
+        <a mat-button routerLink="/login">¿Ya tienes cuenta? Inicia sesión</a>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
