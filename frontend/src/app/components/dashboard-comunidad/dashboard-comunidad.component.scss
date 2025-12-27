@@ -3,7 +3,7 @@
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
 
-  // Franja B: Hero Banner
+  // Hero Banner
   .hero-banner {
     height: 220px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -11,7 +11,7 @@
     color: white;
     display: flex;
     align-items: center;
-    padding: 0 30px; // Margen interno para que el texto no toque el borde
+    padding: 0 30px;
 
     h1 {
       font-size: 2rem;
@@ -23,23 +23,23 @@
       font-size: 1.1rem;
       font-weight: 300;
       max-width: 500px;
-      text-align: justify; // Texto justificado
+      text-align: justify;
     }
   }
 
   // Contenedor principal de contenido
   .content-padding {
     padding: 20px;
-    max-width: 900px; // Un poco más ancho para tablets/desktop
+    max-width: 900px;
     margin: 0 auto;
   }
 
-  // Franja C.1: Card de Perfil
+  // Card de Perfil
   .profile-card {
-    margin-top: -50px; // Efecto de solapamiento con el hero
+    margin-top: -50px;
     margin-bottom: 30px;
     border-radius: 15px;
-    padding: 20px; // Espaciado interno (respiro)
+    padding: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 
     .profile-layout {
@@ -86,7 +86,7 @@
     }
   }
 
-  // Botones de Acción (Respiro externo)
+  // Botones de Acción
   .action-buttons {
     display: flex;
     gap: 20px;
@@ -94,7 +94,7 @@
 
     .action-btn {
       flex: 1;
-      padding: 12px; // Margen interno para que el botón sea grande y fácil de tocar
+      padding: 12px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -120,10 +120,10 @@
     }
   }
 
-  // Card de Item (Problemática)
+  // Card de Item - Problemática
   .item-card {
     margin-bottom: 20px;
-    padding: 15px; // Espaciado interno
+    padding: 15px;
     transition: transform 0.2s;
 
     &:hover {
@@ -230,7 +230,7 @@
 
     .profile-card {
       .profile-layout {
-        flex-direction: column-reverse; // Imagen arriba, texto abajo
+        flex-direction: column-reverse;
         text-align: center;
 
         .profile-info p {
@@ -243,7 +243,7 @@
     }
 
     .action-buttons {
-      flex-direction: column; // Botones uno sobre otro
+      flex-direction: column;
       gap: 15px;
     }
 

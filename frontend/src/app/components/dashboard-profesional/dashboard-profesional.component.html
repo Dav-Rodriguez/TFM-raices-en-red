@@ -1,1 +1,51 @@
-<p>dashboard-profesional works!</p>
+<div class="dashboard-container">
+  <header class="hero-banner prof-hero">
+    <div class="overlay">
+      <h1>Hola, {{ user?.names }}</h1>
+      <p>¿Listo para proponer soluciones sostenibles hoy?</p>
+    </div>
+  </header>
+
+  <div class="content-padding">
+    <mat-card class="profile-card">
+      <div class="profile-layout">
+        <div class="profile-info">
+          <h3>{{ user?.names }} {{ user?.lastnames }}</h3>
+          <p>Especialista en Ingeniería Ambiental y SbN.</p>
+          <button mat-stroked-button color="accent">Actualizar perfil</button>
+        </div>
+        <div class="profile-image">
+          <img src="assets/prof-placeholder.png" alt="Perfil" />
+        </div>
+      </div>
+    </mat-card>
+
+    <button mat-raised-button class="full-width-btn repo-btn">
+      <mat-icon>menu_book</mat-icon> Explorar Repositorio SbN
+    </button>
+
+    <section class="section-container">
+      <h4>Explorar Problemáticas</h4>
+      <div class="category-scroll">
+        <div class="category-item">
+          <mat-icon>opacity</mat-icon><span>Agua</span>
+        </div>
+        <div class="category-item">
+          <mat-icon>eco</mat-icon><span>Ambiente</span>
+        </div>
+        <div class="category-item">
+          <mat-icon>restaurant</mat-icon><span>Alimentación</span>
+        </div>
+        <div class="category-item">
+          <mat-icon>home</mat-icon><span>Hábitat</span>
+        </div>
+        <div class="category-item">
+          <mat-icon>thunderstorm</mat-icon><span>Riesgo climático</span>
+        </div>
+        <div class="category-item">
+          <mat-icon>pets</mat-icon><span>Fauna</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
