@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/problems", require("./routes/problems"));
 
 // Conexión a MongoDB
 mongoose

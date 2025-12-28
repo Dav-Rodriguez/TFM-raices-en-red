@@ -1,17 +1,18 @@
 const mongoose = require("mongoose");
 
 const ProblemSchema = new mongoose.Schema({
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     title: { type: String, required: true },
-    description: { type: String, required: true },
+    communityName: { type: String, required: true },
     location: { type: String, required: true },
-    category: { type: String, required: true },
+    mainImage: { type: String },
+    description: { type: String, required: true },
+    categoryProject: { type: String, required: true },
     priorityGroups: [{ type: String }],
     helpType: [{ type: String }],
-    offerInExchange: { type: String },
-    mainImage: { type: String },
+    exchangeProposal: { type: String, required: true },
     gallery: [{ type: String }],
-    status: { type: String, enum: ["Disponible", "En Proceso", "Finalizado"], default: "Disponible" },
-    author: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    status: { type: String, default: "activa" },
     createdAt: { type: Date, default: Date.now },
 });
 
