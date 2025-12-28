@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ProblemService } from '../../services/problem.service';
 
 @Component({
   selector: 'app-create-problem',
@@ -41,7 +41,7 @@ export class CreateProblemComponent {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
+    private problemService: ProblemService, // Cambiamos HttpClient por el nuevo servicio
     private router: Router,
     private snackBar: MatSnackBar
   ) {
@@ -58,23 +58,20 @@ export class CreateProblemComponent {
   }
 
   onSubmit() {
-    const token = localStorage.getItem('token');
-    const headers = { 'x-auth-token': token || '' };
-
     if (this.problemForm.valid) {
-      this.http
-        .post('http://localhost:3000/api/problems', this.problemForm.value, {
-          headers,
-        })
-        .subscribe({
-          next: () => {
-            this.snackBar.open('¡Publicación creada!', 'Cerrar', {
-              duration: 3000,
-            });
-            this.router.navigate(['/dashboard-comunidad']);
-          },
-          error: () => this.snackBar.open('Error al publicar', 'Cerrar'),
-        });
+      // Se llama al método del servicio en lugar de usar http.post
+      this.problemService.createProblem(this.problemForm.value).subscribe({
+        next: () => {
+          this.snackBar.open('¡Publicación creada!', 'Cerrar', {
+            duration: 3000,
+          });
+          this.router.navigate(['/dashboard-comunidad']);
+        },
+        error: (err) => {
+          console.error(err);
+          this.snackBar.open('Error al publicar la problemática', 'Cerrar');
+        },
+      });
     }
   }
 }

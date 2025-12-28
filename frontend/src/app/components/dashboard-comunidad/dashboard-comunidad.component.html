@@ -40,19 +40,26 @@
     </div>
 
     <section class="section-container">
-      <h4>Tus Publicaciones</h4>
-      <mat-card class="item-card">
+      <h4>Tus Publicaciones Activas</h4>
+
+      <p *ngIf="myProblems.length === 0">
+        Aún no has publicado ninguna problemática.
+      </p>
+
+      <mat-card class="item-card" *ngFor="let prob of myProblems">
         <div class="item-layout">
           <img
-            src="assets/problem-thumb.jpg"
+            [src]="prob.mainImage || 'assets/problem-placeholder.jpg'"
             class="thumbnail"
             alt="Problema"
           />
+
           <div class="item-text">
-            <h5>Escasez de agua en sector alto</h5>
-            <p>Necesitamos soluciones técnicas para recolección de lluvia...</p>
+            <h5>{{ prob.title }}</h5>
+            <p><strong>Ubicación:</strong> {{ prob.location }}</p>
+            <p>{{ prob.description | slice : 0 : 100 }}...</p>
             <button mat-button color="primary" class="edit-btn">
-              Modificar
+              Gestionar
             </button>
           </div>
         </div>
