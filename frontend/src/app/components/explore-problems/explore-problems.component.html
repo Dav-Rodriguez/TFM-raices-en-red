@@ -1,0 +1,110 @@
+<div class="explore-container">
+  <header class="explore-hero">
+    <div class="overlay">
+      <h1>Encuentra proyectos donde tu talento genere impacto</h1>
+    </div>
+  </header>
+
+  <div class="content-padding">
+    <section class="filter-system">
+      <div class="filter-group">
+        <label>Filtrar por Grupos Prioritarios:</label>
+        <mat-chip-listbox aria-label="Grupos Prioritarios">
+          <mat-chip-option
+            *ngFor="let group of groupsList"
+            (click)="toggleGroup(group)"
+          >
+            {{ group }}
+          </mat-chip-option>
+        </mat-chip-listbox>
+      </div>
+
+      <div class="filter-group">
+        <label>Categoría Técnica (SbN):</label>
+        <div class="category-grid">
+          <div
+            class="cat-card"
+            [class.active]="selectedCategory === 'Agua'"
+            (click)="setCategory('Agua')"
+          >
+            <mat-icon>opacity</mat-icon><span>Agua</span>
+          </div>
+
+          <div
+            class="cat-card"
+            [class.active]="selectedCategory === 'Ambiente'"
+            (click)="setCategory('Ambiente')"
+          >
+            <mat-icon>eco</mat-icon><span>Ambiente</span>
+          </div>
+
+          <div
+            class="cat-card"
+            [class.active]="selectedCategory === 'Alimentación'"
+            (click)="setCategory('Alimentación')"
+          >
+            <mat-icon>restaurant</mat-icon><span>Alimentación</span>
+          </div>
+
+          <div
+            class="cat-card"
+            [class.active]="selectedCategory === 'Hábitat'"
+            (click)="setCategory('Hábitat')"
+          >
+            <mat-icon>home</mat-icon><span>Hábitat</span>
+          </div>
+
+          <div
+            class="cat-card"
+            [class.active]="selectedCategory === 'Riesgos Climáticos'"
+            (click)="setCategory('Riesgos Climáticos')"
+          >
+            <mat-icon>thunderstorm</mat-icon><span>Riesgos Climáticos</span>
+          </div>
+
+          <div
+            class="cat-card"
+            [class.active]="selectedCategory === 'Fauna'"
+            (click)="setCategory('Fauna')"
+          >
+            <mat-icon>pets</mat-icon><span>Fauna</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results-feed">
+      <h3>Proyectos Encontrados ({{ filteredProblems.length }})</h3>
+
+      <div class="no-results" *ngIf="filteredProblems.length === 0">
+        <mat-icon>search_off</mat-icon>
+        <p>No se encontraron problemáticas con estos filtros.</p>
+        <button mat-button (click)="resetFilters()">Limpiar filtros</button>
+      </div>
+
+      <mat-card
+        class="problem-item-card"
+        *ngFor="let prob of filteredProblems"
+        [routerLink]="['/problem-detail', prob._id]"
+      >
+        <div class="card-horizontal-layout">
+          <img
+            [src]="prob.mainImage || 'assets/problem-placeholder.jpg'"
+            class="thumb"
+          />
+          <div class="info">
+            <h3>{{ prob.title }}</h3>
+            <p class="community">
+              <mat-icon>location_on</mat-icon> {{ prob.communityName }} -
+              {{ prob.location }}
+            </p>
+            <p class="excerpt">{{ prob.description | slice : 0 : 150 }}...</p>
+            <div class="tags">
+              <span class="tag-sbn">{{ prob.categoryProject }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="detail-container" *ngIf="problem">
+  <div
+    class="detail-hero"
+    [style.background-image]="
+      'url(' + (problem.mainImage || 'assets/hero-bg.jpg') + ')'
+    "
+  >
+    <div class="overlay">
+      <h1>{{ problem.title }}</h1>
+    </div>
+  </div>
+
+  <div class="content-padding">
+    <div class="main-grid">
+      <div class="info-column">
+        <section class="origin-data">
+          <h2><mat-icon>people</mat-icon> {{ problem.communityName }}</h2>
+          <p class="location">
+            <mat-icon>place</mat-icon> {{ problem.location }}
+          </p>
+        </section>
+
+        <mat-divider></mat-divider>
+
+        <section class="description-block">
+          <h3>Descripción del Proyecto y Diagnóstico</h3>
+          <p>{{ problem.description }}</p>
+        </section>
+
+        <section class="technical-pills">
+          <div class="pill">
+            <span class="label">Tipo de Proyecto</span>
+            <span class="value">{{ problem.categoryProject }}</span>
+          </div>
+          <div class="pill">
+            <span class="label">Grupos Prioritarios</span>
+            <span class="value">{{ problem.priorityGroups?.join(", ") }}</span>
+          </div>
+          <div class="pill">
+            <span class="label">Ayuda Buscada</span>
+            <span class="value">{{ problem.helpType?.join(", ") }}</span>
+          </div>
+        </section>
+
+        <section class="exchange-offer">
+          <h3>Propuesta de Intercambio</h3>
+          <div class="exchange-card">
+            <mat-icon>handshake</mat-icon>
+            <p>{{ problem.exchangeProposal }}</p>
+          </div>
+        </section>
+
+        <section class="gallery-section">
+          <h3>Registro Visual de la Problemática</h3>
+          <div class="gallery-row">
+            <img
+              *ngFor="let img of problem.gallery"
+              [src]="img"
+              alt="Evidencia"
+            />
+            <div class="img-placeholder" *ngIf="!problem.gallery?.length">
+              <mat-icon>image_not_supported</mat-icon>
+              <span>Sin fotos adicionales</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="action-sidebar">
+        <mat-card class="cta-card">
+          <p>¿Tienes una solución para esta comunidad?</p>
+          <button mat-raised-button color="primary" class="full-width">
+            ENVIAR PROPUESTA TÉCNICA
+          </button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 // Angular Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,13 +18,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CreateProblemComponent } from './components/create-problem/create-problem.component';
 import { DashboardComunidadComponent } from './components/dashboard-comunidad/dashboard-comunidad.component';
 import { DashboardProfesionalComponent } from './components/dashboard-profesional/dashboard-profesional.component';
+import { ExploreProblemsComponent } from './components/explore-problems/explore-problems.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProblemDetailComponent } from './components/problem-detail/problem-detail.component';
 import { RegisterComponent } from './components/register/register.component';
-import { CreateProblemComponent } from './components/create-problem/create-problem.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { CreateProblemComponent } from './components/create-problem/create-probl
     NavbarComponent,
     FooterComponent,
     CreateProblemComponent,
+    ExploreProblemsComponent,
+    ProblemDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,7 @@ import { CreateProblemComponent } from './components/create-problem/create-probl
     MatSnackBarModule,
     MatMenuModule,
     MatDividerModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

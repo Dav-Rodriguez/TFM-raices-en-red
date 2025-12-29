@@ -25,24 +25,53 @@
     </button>
 
     <section class="section-container">
-      <h4>Explorar Problemáticas</h4>
+      <h4>Exploración de publicaciones de problemáticas</h4>
       <div class="category-scroll">
-        <div class="category-item">
+        <div
+          class="category-item"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ category: 'Agua' }"
+        >
           <mat-icon>opacity</mat-icon><span>Agua</span>
         </div>
-        <div class="category-item">
+
+        <div
+          class="category-item"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ category: 'Ambiente' }"
+        >
           <mat-icon>eco</mat-icon><span>Ambiente</span>
         </div>
-        <div class="category-item">
+
+        <div
+          class="category-item"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ category: 'Alimentación' }"
+        >
           <mat-icon>restaurant</mat-icon><span>Alimentación</span>
         </div>
-        <div class="category-item">
+
+        <div
+          class="category-item"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ category: 'Hábitat' }"
+        >
           <mat-icon>home</mat-icon><span>Hábitat</span>
         </div>
-        <div class="category-item">
+
+        <div
+          class="category-item"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ category: 'Riesgos Climáticos' }"
+        >
           <mat-icon>thunderstorm</mat-icon><span>Riesgo climático</span>
         </div>
-        <div class="category-item">
+
+        <div
+          class="category-item"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ category: 'Fauna' }"
+        >
           <mat-icon>pets</mat-icon><span>Fauna</span>
         </div>
       </div>

@@ -16,8 +16,6 @@ router.post("/", auth, async (req, res) => {
     }
 });
 
-module.exports = router;
-
 // GET /api/problems/me - Obtener publicaciones del usuario logueado (Usuario A)
 router.get("/me", auth, async (req, res) => {
     try {
@@ -38,3 +36,16 @@ router.get("/", auth, async (req, res) => {
         res.status(500).send("Error al obtener las publicaciones");
     }
 });
+
+// GET /api/problems/:id - Obtener una sola problemática
+router.get("/:id", auth, async (req, res) => {
+    try {
+        const problem = await Problem.findById(req.params.id);
+        if (!problem) return res.status(404).json({ msg: "Problemática no encontrada" });
+        res.json(problem);
+    } catch (err) {
+        res.status(500).send("Error al obtener el detalle");
+    }
+});
+
+module.exports = router;

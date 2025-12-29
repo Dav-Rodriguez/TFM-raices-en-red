@@ -1,0 +1,126 @@
+/* Explore Problems Styles */
+.explore-hero {
+  height: 200px;
+  background: url("/assets/explore-bg.jpg") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .overlay {
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+  }
+}
+
+.filter-system {
+  margin: 20px 0;
+  .filter-group {
+    margin-bottom: 25px;
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+  }
+}
+
+.category-grid {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  .cat-card {
+    min-width: 100px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    &.active {
+      border-color: #2e7d32;
+      background: #e8f5e9;
+    }
+    mat-icon {
+      display: block;
+      margin: 0 auto 5px;
+      color: #2e7d32;
+    }
+    span {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
+}
+
+/* Problem Detail Styles */
+.detail-hero {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  .overlay {
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    color: white;
+  }
+}
+
+.technical-pills {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+  .pill {
+    background: #f1f8e9;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #2e7d32;
+    .label {
+      display: block;
+      font-size: 0.7rem;
+      color: #666;
+      text-transform: uppercase;
+    }
+    .value {
+      font-weight: 600;
+      color: #333;
+    }
+  }
+}
+
+.gallery-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  margin-top: 15px;
+  img,
+  .img-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #eee;
+  }
+}
+
+// Media Queries para la Ficha
+@media (min-width: 768px) {
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+  }
+  .action-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+  }
+}
