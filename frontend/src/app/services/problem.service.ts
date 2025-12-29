@@ -41,4 +41,13 @@ export class ProblemService {
       headers: this.getHeaders(),
     });
   }
+
+  // Envío de propuestas
+  sendProposal(proposalData: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ 'x-auth-token': token || '' });
+    return this.http.post('http://localhost:3000/api/proposals', proposalData, {
+      headers,
+    });
+  }
 }

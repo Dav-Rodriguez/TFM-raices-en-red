@@ -69,7 +69,12 @@
       <div class="action-sidebar">
         <mat-card class="cta-card">
           <p>¿Tienes una solución para esta comunidad?</p>
-          <button mat-raised-button color="primary" class="full-width">
+          <button
+            mat-raised-button
+            color="primary"
+            class="full-width"
+            [routerLink]="['/send-proposal', problem._id]"
+          >
             ENVIAR PROPUESTA TÉCNICA
           </button>
         </mat-card>

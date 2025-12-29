@@ -7,6 +7,7 @@ import { ExploreProblemsComponent } from './components/explore-problems/explore-
 import { LoginComponent } from './components/login/login.component';
 import { ProblemDetailComponent } from './components/problem-detail/problem-detail.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SendProposalComponent } from './components/send-proposal/send-proposal.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'dashboard-profesional', component: DashboardProfesionalComponent },
   { path: 'explore-problems', component: ExploreProblemsComponent },
   { path: 'problem-detail/:id', component: ProblemDetailComponent },
+  { path: 'send-proposal/:problemId', component: SendProposalComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' },
 ];

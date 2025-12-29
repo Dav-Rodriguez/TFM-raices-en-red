@@ -1,0 +1,92 @@
+<p>send-proposal works!</p>
+<div class="proposal-container" *ngIf="problem">
+  <header
+    class="context-hero"
+    [style.background-image]="
+      'url(' + (problem.mainImage || 'assets/hero-bg.jpg') + ')'
+    "
+  >
+    <div class="overlay">
+      <p>Aplicando a:</p>
+      <h1>{{ problem.title }}</h1>
+    </div>
+  </header>
+
+  <div class="content-padding">
+    <h2>Crear una nueva propuesta para esta publicación</h2>
+
+    <form [formGroup]="proposalForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Título de tu propuesta</mat-label>
+        <input
+          matInput
+          formControlName="title"
+          placeholder="Ej: Plan de reforestación nativa"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Motivación personal</mat-label>
+        <textarea
+          matInput
+          rows="3"
+          formControlName="motivation"
+          placeholder="¿Por qué te interesa este proyecto?"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descripción técnica de la propuesta</mat-label>
+        <textarea
+          matInput
+          rows="6"
+          formControlName="description"
+          placeholder="Detalla las soluciones SbN a implementar"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tu ubicación (País, Ciudad)</mat-label>
+        <input matInput formControlName="location" />
+      </mat-form-field>
+
+      <div class="selectors-grid">
+        <mat-form-field appearance="outline">
+          <mat-label>Especialidad</mat-label>
+          <mat-select formControlName="specialty">
+            <mat-option *ngFor="let s of specialties" [value]="s">{{
+              s
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Modalidad</mat-label>
+          <mat-select formControlName="modality">
+            <mat-option *ngFor="let m of modalities" [value]="m">{{
+              m
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo de Programa</mat-label>
+          <mat-select formControlName="programType">
+            <mat-option *ngFor="let p of programs" [value]="p">{{
+              p
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="submit-btn"
+        [disabled]="proposalForm.invalid"
+      >
+        ENVIAR PROPUESTA
+      </button>
+    </form>
+  </div>
+</div>

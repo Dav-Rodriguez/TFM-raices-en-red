@@ -27,6 +27,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProblemDetailComponent } from './components/problem-detail/problem-detail.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SendProposalComponent } from './components/send-proposal/send-proposal.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RegisterComponent } from './components/register/register.component';
     CreateProblemComponent,
     ExploreProblemsComponent,
     ProblemDetailComponent,
+    SendProposalComponent,
   ],
   imports: [
     BrowserModule,
