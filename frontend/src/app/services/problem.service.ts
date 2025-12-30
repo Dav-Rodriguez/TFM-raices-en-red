@@ -50,4 +50,44 @@ export class ProblemService {
       headers,
     });
   }
+
+  // Llamada a endpoint de propuestas recibidas
+  getReceivedProposals(): Observable<any[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ 'x-auth-token': token || '' });
+    return this.http.get<any[]>(
+      'http://localhost:3000/api/proposals/received',
+      { headers }
+    );
+  }
+
+  // Obtener detalle de una propuesta
+  getProposalById(id: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ 'x-auth-token': token || '' });
+    return this.http.get<any>(`http://localhost:3000/api/proposals/${id}`, {
+      headers,
+    });
+  }
+
+  // Actualizar estado (Aceptar/Rechazar)
+  updateProposalStatus(id: string, status: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ 'x-auth-token': token || '' });
+    return this.http.patch(
+      `http://localhost:3000/api/proposals/${id}/status`,
+      { status },
+      { headers }
+    );
+  }
+
+  // Actualizar Dashboard B con historial de propuestas enviadas
+  getMySentProposals(): Observable<any[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ 'x-auth-token': token || '' });
+    return this.http.get<any[]>(
+      'http://localhost:3000/api/proposals/my-proposals',
+      { headers }
+    );
+  }
 }

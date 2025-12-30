@@ -76,5 +76,44 @@
         </div>
       </div>
     </section>
+
+    <section class="section-container">
+      <h4>Historial de Propuestas Enviadas (Seguimiento)</h4>
+
+      <div class="no-data" *ngIf="sentProposals.length === 0">
+        <p>
+          Aún no has enviado propuestas técnicas. Explora problemáticas para
+          comenzar.
+        </p>
+      </div>
+
+      <div class="proposals-scroll">
+        <mat-card class="tracking-card" *ngFor="let prop of sentProposals">
+          <div class="tracking-layout">
+            <div class="info-col">
+              <h5>{{ prop.problem?.title }}</h5>
+              <p class="excerpt">{{ prop.description | slice : 0 : 100 }}...</p>
+
+              <div class="status-indicator">
+                <span
+                  class="semaphore"
+                  [ngClass]="prop.status.toLowerCase()"
+                ></span>
+                <span class="status-text">{{ prop.status }}</span>
+              </div>
+            </div>
+
+            <div class="visual-col">
+              <img
+                [src]="
+                  prop.problem?.mainImage || 'assets/problem-placeholder.jpg'
+                "
+                alt="Referencia"
+              />
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </section>
   </div>
 </div>

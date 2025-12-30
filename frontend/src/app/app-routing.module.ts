@@ -5,6 +5,7 @@ import { DashboardComunidadComponent } from './components/dashboard-comunidad/da
 import { DashboardProfesionalComponent } from './components/dashboard-profesional/dashboard-profesional.component';
 import { ExploreProblemsComponent } from './components/explore-problems/explore-problems.component';
 import { LoginComponent } from './components/login/login.component';
+import { ManageProposalComponent } from './components/manage-proposal/manage-proposal.component';
 import { ProblemDetailComponent } from './components/problem-detail/problem-detail.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SendProposalComponent } from './components/send-proposal/send-proposal.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'explore-problems', component: ExploreProblemsComponent },
   { path: 'problem-detail/:id', component: ProblemDetailComponent },
   { path: 'send-proposal/:problemId', component: SendProposalComponent },
+  { path: 'manage-proposal/:id', component: ManageProposalComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' },
 ];

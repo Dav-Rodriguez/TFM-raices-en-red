@@ -10,6 +10,7 @@ import { ProblemService } from '../../services/problem.service';
 export class DashboardProfesionalComponent implements OnInit {
   user: any;
   allProblems: any[] = [];
+  sentProposals: any[] = [];
 
   constructor(
     private authService: AuthService,
@@ -20,6 +21,7 @@ export class DashboardProfesionalComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAllProblems();
+    this.loadMySentProposals();
   }
 
   loadAllProblems() {
@@ -29,6 +31,13 @@ export class DashboardProfesionalComponent implements OnInit {
       },
       error: (err) =>
         console.error('Error cargando problemáticas globales', err),
+    });
+  }
+
+  loadMySentProposals() {
+    this.problemService.getMySentProposals().subscribe({
+      next: (data) => (this.sentProposals = data),
+      error: (err) => console.error('Error cargando historial', err),
     });
   }
 }

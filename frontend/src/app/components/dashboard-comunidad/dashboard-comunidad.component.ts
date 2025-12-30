@@ -10,6 +10,7 @@ import { ProblemService } from 'src/app/services/problem.service';
 export class DashboardComunidadComponent implements OnInit {
   user: any;
   myProblems: any[] = [];
+  receivedProposals: any[] = [];
 
   constructor(
     private authService: AuthService,
@@ -20,6 +21,7 @@ export class DashboardComunidadComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMyProblems();
+    this.loadProposals();
   }
 
   loadMyProblems() {
@@ -31,6 +33,13 @@ export class DashboardComunidadComponent implements OnInit {
       error: (err) => {
         console.error('Error cargando problemas', err);
       },
+    });
+  }
+
+  loadProposals() {
+    this.problemService.getReceivedProposals().subscribe({
+      next: (data) => (this.receivedProposals = data),
+      error: (err) => console.error('Error cargando propuestas', err),
     });
   }
 }

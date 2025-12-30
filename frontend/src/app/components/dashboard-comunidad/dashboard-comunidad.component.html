@@ -65,5 +65,40 @@
         </div>
       </mat-card>
     </section>
+
+    <section class="section-container">
+      <h4>Feed de Notificaciones y Propuestas</h4>
+
+      <div class="no-data" *ngIf="receivedProposals.length === 0">
+        <p>No has recibido propuestas técnicas aún.</p>
+      </div>
+
+      <div class="proposals-scroll">
+        <mat-card
+          class="notification-card"
+          *ngFor="let prop of receivedProposals"
+          [routerLink]="['/manage-proposal', prop._id]"
+        >
+          <div class="notification-layout">
+            <div class="notif-content">
+              <h5>Propuesta enviada por {{ prop.proposer?.names }}</h5>
+              <p class="target-problem">Proyecto: {{ prop.problem?.title }}</p>
+              <p class="excerpt">{{ prop.description | slice : 0 : 80 }}...</p>
+            </div>
+
+            <div class="notif-status">
+              <img
+                src="assets/prof-placeholder.png"
+                class="mini-profile"
+                alt="Profesional"
+              />
+              <span class="status-badge" [ngClass]="prop.status.toLowerCase()">
+                {{ prop.status }}
+              </span>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </section>
   </div>
 </div>

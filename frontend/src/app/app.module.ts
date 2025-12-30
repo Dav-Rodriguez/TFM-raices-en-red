@@ -28,6 +28,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProblemDetailComponent } from './components/problem-detail/problem-detail.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SendProposalComponent } from './components/send-proposal/send-proposal.component';
+import { ManageProposalComponent } from './components/manage-proposal/manage-proposal.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SendProposalComponent } from './components/send-proposal/send-proposal.
     ExploreProblemsComponent,
     ProblemDetailComponent,
     SendProposalComponent,
+    ManageProposalComponent,
   ],
   imports: [
     BrowserModule,

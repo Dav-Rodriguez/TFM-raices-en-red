@@ -1,0 +1,91 @@
+<div class="manage-container" *ngIf="proposal">
+  <header class="hero-manage">
+    <div class="overlay">
+      <h1>Gestión de Talento Voluntario</h1>
+      <p>
+        Evalúa la propuesta técnica para concretar el match con tu comunidad.
+      </p>
+    </div>
+  </header>
+
+  <div class="content-padding">
+    <mat-card class="master-card">
+      <section class="profile-header">
+        <div class="prof-info">
+          <h2>
+            Propuesta enviada por {{ proposal.proposer?.names }}
+            {{ proposal.proposer?.lastnames }}
+          </h2>
+          <p class="specialty-text">Especialista en {{ proposal.specialty }}</p>
+        </div>
+        <img
+          src="assets/prof-placeholder.png"
+          class="prof-photo"
+          alt="Perfil"
+        />
+      </section>
+
+      <mat-divider></mat-divider>
+
+      <div class="reference-bar">
+        <span
+          >Propuesta para: <strong>{{ proposal.problem?.title }}</strong></span
+        >
+      </div>
+
+      <section class="context-grid">
+        <img
+          [src]="
+            proposal.problem?.mainImage || 'assets/problem-placeholder.jpg'
+          "
+          class="prob-thumb"
+        />
+        <div class="motivation-box">
+          <h3>{{ proposal.title }}</h3>
+          <p><strong>Motivación:</strong> {{ proposal.motivation }}</p>
+        </div>
+      </section>
+
+      <section class="technical-body">
+        <h4>Descripción de la Solución Propuesta</h4>
+        <p>{{ proposal.description }}</p>
+        <p class="location-tag">
+          <mat-icon>place</mat-icon> Ubicación del profesional:
+          {{ proposal.location }}
+        </p>
+      </section>
+
+      <section class="classification-row">
+        <div class="info-pill">
+          <label>Especialidad</label>
+          <span>{{ proposal.specialty }}</span>
+        </div>
+        <div class="info-pill">
+          <label>Modalidad</label>
+          <span>{{ proposal.modality }}</span>
+        </div>
+        <div class="info-pill">
+          <label>Programa</label>
+          <span>{{ proposal.programType }}</span>
+        </div>
+      </section>
+
+      <div class="action-buttons-group">
+        <button
+          mat-raised-button
+          class="btn-accept"
+          (click)="changeStatus('Aceptada')"
+        >
+          <mat-icon>check_circle</mat-icon> ACEPTAR PROPUESTA
+        </button>
+        <button
+          mat-stroked-button
+          class="btn-reject"
+          (click)="changeStatus('Rechazada')"
+        >
+          <mat-icon>cancel</mat-icon> RECHAZAR PROPUESTA
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>
