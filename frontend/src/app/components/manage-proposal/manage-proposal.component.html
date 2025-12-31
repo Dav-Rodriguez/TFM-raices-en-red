@@ -75,17 +75,24 @@
           mat-raised-button
           class="btn-accept"
           (click)="changeStatus('Aceptada')"
+          [disabled]="proposal.status !== 'Enviada'"
         >
           <mat-icon>check_circle</mat-icon> ACEPTAR PROPUESTA
         </button>
+
         <button
           mat-stroked-button
           class="btn-reject"
           (click)="changeStatus('Rechazada')"
+          [disabled]="proposal.status !== 'Enviada'"
         >
           <mat-icon>cancel</mat-icon> RECHAZAR PROPUESTA
         </button>
       </div>
+
+      <p *ngIf="proposal.status !== 'Enviada'" class="status-notice">
+        Esta propuesta ya ha sido gestionada (Estado: {{ proposal.status }}).
+      </p>
     </mat-card>
   </div>
 </div>

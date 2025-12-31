@@ -272,6 +272,37 @@
     overflow-y: auto;
     padding-right: 5px;
   }
+  .tracking-card {
+    transition: all 0.3s ease;
+
+    &.clickable-match {
+      cursor: pointer;
+      border-left: 5px solid #2e7d32;
+
+      &:hover {
+        background-color: #f1f8e9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+      }
+    }
+
+    .click-hint {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.7rem;
+      color: #2e7d32;
+      font-weight: 600;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+
+      mat-icon {
+        font-size: 14px;
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
 }
 
 /* --- RESPONSIVIDAD (Media Queries) --- */

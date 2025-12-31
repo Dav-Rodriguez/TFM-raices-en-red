@@ -1,0 +1,70 @@
+.modal-container {
+  padding: 20px;
+  text-align: center;
+
+  .modal-header {
+    .celebration-icon {
+      font-size: 50px;
+      width: 50px;
+      height: 50px;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #2e7d32;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  .contact-card {
+    background: #f1f8e9;
+    border-radius: 12px;
+    display: flex;
+    padding: 15px;
+    margin: 20px 0;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+
+    .mini-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .contact-info {
+      p {
+        margin: 2px 0;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      mat-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+        color: #2e7d32;
+      }
+    }
+  }
+
+  .instruction {
+    font-weight: 600;
+    color: #1b5e20;
+    font-style: italic;
+    margin-top: 15px;
+  }
+  .small-info {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 10px;
+  }
+  .modal-actions {
+    justify-content: center;
+    button {
+      width: 100%;
+    }
+  }
+}

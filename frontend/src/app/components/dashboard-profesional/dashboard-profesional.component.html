@@ -88,10 +88,18 @@
       </div>
 
       <div class="proposals-scroll">
-        <mat-card class="tracking-card" *ngFor="let prop of sentProposals">
+        <mat-card
+          class="tracking-card"
+          *ngFor="let prop of sentProposals"
+          (click)="openMatchInfo(prop)"
+          [class.clickable-match]="prop.status === 'Aceptada'"
+        >
           <div class="tracking-layout">
             <div class="info-col">
               <h5>{{ prop.problem?.title }}</h5>
+              <p class="click-hint" *ngIf="prop.status === 'Aceptada'">
+                <mat-icon>visibility</mat-icon> Clic para ver datos de contacto
+              </p>
               <p class="excerpt">{{ prop.description | slice : 0 : 100 }}...</p>
 
               <div class="status-indicator">
@@ -101,15 +109,6 @@
                 ></span>
                 <span class="status-text">{{ prop.status }}</span>
               </div>
-            </div>
-
-            <div class="visual-col">
-              <img
-                [src]="
-                  prop.problem?.mainImage || 'assets/problem-placeholder.jpg'
-                "
-                alt="Referencia"
-              />
             </div>
           </div>
         </mat-card>

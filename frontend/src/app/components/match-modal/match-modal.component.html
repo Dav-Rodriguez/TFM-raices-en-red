@@ -1,0 +1,88 @@
+<div class="modal-container">
+  <div class="modal-header">
+    <mat-icon class="celebration-icon">{{
+      data.role === "A" ? "handshake" : "emoji_events"
+    }}</mat-icon>
+    <h2>
+      {{
+        data.role === "A"
+          ? "¡Felicidades, tienes un Match!"
+          : "¡Tu propuesta ha sido aceptada!"
+      }}
+    </h2>
+  </div>
+
+  <div mat-dialog-content class="modal-body">
+    <div *ngIf="data.role === 'A'">
+      <p>
+        Has aceptado la propuesta de
+        <strong>{{ data.proposal.proposer.names }}</strong
+        >. Ahora pueden coordinar el inicio del proyecto.
+      </p>
+
+      <div class="contact-card">
+        <img
+          [src]="
+            data.proposal.proposer.profileImage || 'assets/prof-placeholder.png'
+          "
+          class="mini-avatar"
+        />
+        <div class="contact-info">
+          <p><strong>Especialidad:</strong> {{ data.proposal.specialty }}</p>
+          <p><mat-icon>email</mat-icon> {{ data.proposal.proposer.email }}</p>
+          <p>
+            <mat-icon>smartphone</mat-icon> {{ data.proposal.proposer.phone }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="data.role === 'B'">
+      <p>
+        La comunidad
+        <strong>{{ data.proposal.problem.user.communityName }}</strong> ha
+        aceptado tu solución técnica para el proyecto
+        <strong>{{ data.proposal.problem.title }}</strong
+        >.
+      </p>
+
+      <div class="contact-card">
+        <img
+          [src]="
+            data.proposal.problem.user.profileImage ||
+            'assets/avatar-placeholder.png'
+          "
+          class="mini-avatar"
+        />
+        <div class="contact-info">
+          <p>
+            <strong>Representante:</strong>
+            {{ data.proposal.problem.user.names }}
+            {{ data.proposal.problem.user.lastnames }}
+          </p>
+          <p>
+            <mat-icon>email</mat-icon> {{ data.proposal.problem.user.email }}
+          </p>
+          <p>
+            <mat-icon>smartphone</mat-icon>
+            {{ data.proposal.problem.user.phone }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="instruction">
+      "Ponte en contacto para empezar a trabajar en soluciones basadas en la
+      naturaleza"
+    </p>
+    <p class="small-info">
+      Podrás volver a ver esta información en tu panel de gestión.
+    </p>
+  </div>
+
+  <div mat-dialog-actions class="modal-actions">
+    <button mat-raised-button color="primary" (click)="onClose()">
+      {{ data.role === "A" ? "CERRAR" : "ENTENDIDO" }}
+    </button>
+  </div>
+</div>

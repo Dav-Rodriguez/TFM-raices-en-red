@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,11 +25,12 @@ import { DashboardProfesionalComponent } from './components/dashboard-profesiona
 import { ExploreProblemsComponent } from './components/explore-problems/explore-problems.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { ManageProposalComponent } from './components/manage-proposal/manage-proposal.component';
+import { MatchModalComponent } from './components/match-modal/match-modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProblemDetailComponent } from './components/problem-detail/problem-detail.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SendProposalComponent } from './components/send-proposal/send-proposal.component';
-import { ManageProposalComponent } from './components/manage-proposal/manage-proposal.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { ManageProposalComponent } from './components/manage-proposal/manage-pro
     ProblemDetailComponent,
     SendProposalComponent,
     ManageProposalComponent,
+    MatchModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { ManageProposalComponent } from './components/manage-proposal/manage-pro
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+
     // Material Modules
     MatInputModule,
     MatButtonModule,
@@ -63,6 +67,7 @@ import { ManageProposalComponent } from './components/manage-proposal/manage-pro
     MatMenuModule,
     MatDividerModule,
     MatChipsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

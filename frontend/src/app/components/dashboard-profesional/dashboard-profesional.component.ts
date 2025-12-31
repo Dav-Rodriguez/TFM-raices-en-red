@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
 import { ProblemService } from '../../services/problem.service';
+import { MatchModalComponent } from '../match-modal/match-modal.component';
 
 @Component({
   selector: 'app-dashboard-profesional',
@@ -14,7 +16,8 @@ export class DashboardProfesionalComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private problemService: ProblemService
+    private problemService: ProblemService,
+    private dialog: MatDialog
   ) {
     this.user = this.authService.getUserData();
   }
@@ -39,5 +42,17 @@ export class DashboardProfesionalComponent implements OnInit {
       next: (data) => (this.sentProposals = data),
       error: (err) => console.error('Error cargando historial', err),
     });
+  }
+
+  openMatchInfo(prop: any) {
+    if (prop.status === 'Aceptada') {
+      this.dialog.open(MatchModalComponent, {
+        data: {
+          proposal: prop,
+          role: 'B', // Indicamos que la vista es para el Profesional
+        },
+        width: '450px',
+      });
+    }
   }
 }
