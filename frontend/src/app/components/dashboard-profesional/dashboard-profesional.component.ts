@@ -49,7 +49,7 @@ export class DashboardProfesionalComponent implements OnInit {
       this.dialog.open(MatchModalComponent, {
         data: {
           proposal: prop,
-          role: 'B', // Indicamos que la vista es para el Profesional
+          role: 'B',
         },
         width: '450px',
       });

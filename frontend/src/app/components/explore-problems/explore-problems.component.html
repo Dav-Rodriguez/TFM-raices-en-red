@@ -9,14 +9,32 @@
     <section class="filter-system">
       <div class="filter-group">
         <label>Filtrar por Grupos Prioritarios:</label>
-        <mat-chip-listbox aria-label="Grupos Prioritarios">
-          <mat-chip-option
-            *ngFor="let group of groupsList"
-            (click)="toggleGroup(group)"
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Seleccionar grupos</mat-label>
+          <mat-select
+            [value]="selectedGroups"
+            (selectionChange)="onGroupSelect($event)"
+            multiple
+          >
+            <mat-option *ngFor="let group of groupsList" [value]="group">
+              {{ group }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="selected-chips-container" *ngIf="selectedGroups.length > 0">
+          <mat-chip-row
+            *ngFor="let group of selectedGroups"
+            (removed)="toggleGroup(group)"
+            class="custom-chip"
           >
             {{ group }}
-          </mat-chip-option>
-        </mat-chip-listbox>
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        </div>
       </div>
 
       <div class="filter-group">
@@ -71,15 +89,30 @@
           </div>
         </div>
       </div>
+
+      <div class="reset-container">
+        <button
+          mat-button
+          color="warn"
+          (click)="resetFilters()"
+          *ngIf="selectedCategory || selectedGroups.length > 0"
+        >
+          <mat-icon>restart_alt</mat-icon> Limpiar todos los filtros
+        </button>
+      </div>
     </section>
 
     <section class="results-feed">
-      <h3>Proyectos Encontrados ({{ filteredProblems.length }})</h3>
+      <div class="section-header">
+        <h4>Proyectos Encontrados ({{ filteredProblems.length }})</h4>
+      </div>
 
       <div class="no-results" *ngIf="filteredProblems.length === 0">
         <mat-icon>search_off</mat-icon>
-        <p>No se encontraron problemáticas con estos filtros.</p>
-        <button mat-button (click)="resetFilters()">Limpiar filtros</button>
+        <p>No hay problemáticas para los filtros seleccionados.</p>
+        <button mat-stroked-button color="primary" (click)="resetFilters()">
+          Ver todo
+        </button>
       </div>
 
       <mat-card
@@ -88,17 +121,14 @@
         [routerLink]="['/problem-detail', prob._id]"
       >
         <div class="card-horizontal-layout">
-          <img
-            [src]="prob.mainImage || 'assets/problem-placeholder.jpg'"
-            class="thumb"
-          />
+          <img [src]="prob.imageUrl || 'assets/hero-bg.jpg'" class="thumb" />
           <div class="info">
             <h3>{{ prob.title }}</h3>
             <p class="community">
-              <mat-icon>location_on</mat-icon> {{ prob.communityName }} -
-              {{ prob.location }}
+              <mat-icon>location_on</mat-icon>
+              {{ prob.city || "Ubicación no especificada" }}
             </p>
-            <p class="excerpt">{{ prob.description | slice : 0 : 150 }}...</p>
+            <p class="excerpt">{{ prob.description | slice : 0 : 140 }}...</p>
             <div class="tags">
               <span class="tag-sbn">{{ prob.categoryProject }}</span>
             </div>

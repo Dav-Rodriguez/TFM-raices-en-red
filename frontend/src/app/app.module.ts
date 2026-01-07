@@ -31,6 +31,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProblemDetailComponent } from './components/problem-detail/problem-detail.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SendProposalComponent } from './components/send-proposal/send-proposal.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { SbnRepositoryComponent } from './components/sbn-repository/sbn-repository.component';
+import { SbnArticlesListComponent } from './components/sbn-articles-list/sbn-articles-list.component';
+import { SbnArticleDetailComponent } from './components/sbn-article-detail/sbn-article-detail.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,10 @@ import { SendProposalComponent } from './components/send-proposal/send-proposal.
     SendProposalComponent,
     ManageProposalComponent,
     MatchModalComponent,
+    LandingComponent,
+    SbnRepositoryComponent,
+    SbnArticlesListComponent,
+    SbnArticleDetailComponent,
   ],
   imports: [
     BrowserModule,

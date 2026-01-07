@@ -33,6 +33,22 @@
           />
         </mat-form-field>
 
+        <div class="phone-row">
+          <mat-form-field appearance="outline" class="phone-code">
+            <mat-label>Código</mat-label>
+            <input matInput formControlName="phoneCode" placeholder="+593" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="phone-number">
+            <mat-label>Teléfono Móvil</mat-label>
+            <input
+              matInput
+              formControlName="phoneNumber"
+              placeholder="0987654321"
+            />
+          </mat-form-field>
+        </div>
+
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Contraseña</mat-label>
           <input matInput type="password" formControlName="password" />

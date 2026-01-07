@@ -1,0 +1,53 @@
+<article class="article-detail" *ngIf="article">
+  <header class="hero-header">
+    <img [src]="article.heroImg" alt="Hero Image" class="hero-image" />
+  </header>
+
+  <div class="article-content">
+    <nav class="breadcrumb">
+      <span>Repositorio</span> / <span>{{ article.category }}</span>
+    </nav>
+
+    <h1 class="main-title">{{ article.title }}</h1>
+
+    <p class="intro-text">{{ article.intro }}</p>
+    <p>{{ article.content1 }}</p>
+
+    <h2 class="subheadline">{{ article.subhead1 }}</h2>
+    <p>{{ article.body1 }}</p>
+    <p>{{ article.body2 }}</p>
+
+    <h2 class="subheadline">{{ article.subhead2 }}</h2>
+    <p>{{ article.body3 }}</p>
+    <p>{{ article.body4 }}</p>
+
+    <figure class="immersive-figure">
+      <img [src]="article.immersiveImg" alt="Esquema Técnico" />
+      <figcaption>
+        Esquema técnico explicativo de la solución SbN propuesta.
+      </figcaption>
+    </figure>
+
+    <h2 class="subheadline">{{ article.subhead3 }}</h2>
+    <p>{{ article.body5 }}</p>
+
+    <div class="conclusion-box">
+      <p>{{ article.conclusion }}</p>
+    </div>
+
+    <section class="conversion-section">
+      <h3>¿Quieres pasar del conocimiento a la acción?</h3>
+      <p>
+        Únete a nuestra red para proponer o colaborar en proyectos similares.
+      </p>
+      <div class="cta-group">
+        <button mat-flat-button color="primary" routerLink="/register">
+          REGISTRAR MI COMUNIDAD
+        </button>
+        <button mat-flat-button color="accent" routerLink="/register">
+          REGISTRARME COMO VOLUNTARIO
+        </button>
+      </div>
+    </section>
+  </div>
+</article>

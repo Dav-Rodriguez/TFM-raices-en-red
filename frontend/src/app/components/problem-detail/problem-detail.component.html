@@ -1,84 +1,124 @@
 <div class="detail-container" *ngIf="problem">
-  <div
+  <header
     class="detail-hero"
     [style.background-image]="
-      'url(' + (problem.mainImage || 'assets/hero-bg.jpg') + ')'
+      'url(' + (problem.imageUrl || 'assets/hero-bg.jpg') + ')'
     "
   >
     <div class="overlay">
       <h1>{{ problem.title }}</h1>
     </div>
-  </div>
+  </header>
 
   <div class="content-padding">
     <div class="main-grid">
       <div class="info-column">
-        <section class="origin-data">
-          <h2><mat-icon>people</mat-icon> {{ problem.communityName }}</h2>
-          <p class="location">
-            <mat-icon>place</mat-icon> {{ problem.location }}
-          </p>
+        <section class="master-data">
+          <div class="community-info">
+            <mat-icon>groups</mat-icon>
+            <div>
+              <span class="label">Comunidad</span>
+              <p>{{ problem.communityName }}</p>
+            </div>
+          </div>
+          <div class="location-info">
+            <mat-icon>place</mat-icon>
+            <div>
+              <span class="label">Ubicación</span>
+              <p>{{ problem.city }}, {{ problem.country || "Ecuador" }}</p>
+            </div>
+          </div>
         </section>
 
         <mat-divider></mat-divider>
 
         <section class="description-block">
-          <h3>Descripción del Proyecto y Diagnóstico</h3>
+          <h3>Diagnóstico de la Problemática</h3>
           <p>{{ problem.description }}</p>
         </section>
 
-        <section class="technical-pills">
-          <div class="pill">
-            <span class="label">Tipo de Proyecto</span>
-            <span class="value">{{ problem.categoryProject }}</span>
+        <section class="taxonomy-grid">
+          <div class="tax-item">
+            <mat-icon>category</mat-icon>
+            <strong>Tipo de Proyecto:</strong>
+            <span class="tag-project">{{ problem.categoryProject }}</span>
           </div>
-          <div class="pill">
-            <span class="label">Grupos Prioritarios</span>
-            <span class="value">{{ problem.priorityGroups?.join(", ") }}</span>
+          <div class="tax-item">
+            <mat-icon>volunteer_activism</mat-icon>
+            <strong>Grupos Prioritarios:</strong>
+            <div class="tag-list">
+              <span class="tag-pill" *ngFor="let g of problem.priorityGroups">{{
+                g
+              }}</span>
+            </div>
           </div>
-          <div class="pill">
-            <span class="label">Ayuda Buscada</span>
-            <span class="value">{{ problem.helpType?.join(", ") }}</span>
+          <div class="tax-item">
+            <mat-icon>handyman</mat-icon>
+            <strong>Ayuda Buscada:</strong>
+            <div class="tag-list">
+              <span class="tag-pill help" *ngFor="let h of problem.helpType">{{
+                h
+              }}</span>
+            </div>
           </div>
         </section>
 
         <section class="exchange-offer">
-          <h3>Propuesta de Intercambio</h3>
-          <div class="exchange-card">
-            <mat-icon>handshake</mat-icon>
+          <h3>Intercambio y Compensación</h3>
+          <div class="exchange-box">
+            <mat-icon>workspace_premium</mat-icon>
             <p>{{ problem.exchangeProposal }}</p>
           </div>
         </section>
 
         <section class="gallery-section">
-          <h3>Registro Visual de la Problemática</h3>
-          <div class="gallery-row">
+          <h3>Galería del Territorio</h3>
+          <div class="gallery-grid">
             <img
               *ngFor="let img of problem.gallery"
               [src]="img"
-              alt="Evidencia"
+              alt="Contexto"
             />
-            <div class="img-placeholder" *ngIf="!problem.gallery?.length">
-              <mat-icon>image_not_supported</mat-icon>
-              <span>Sin fotos adicionales</span>
+            <div class="empty-gallery" *ngIf="!problem.gallery?.length">
+              <mat-icon>collections</mat-icon>
+              <p>No se han cargado imágenes adicionales.</p>
             </div>
           </div>
         </section>
       </div>
 
-      <div class="action-sidebar">
+      <aside class="action-sidebar">
         <mat-card class="cta-card">
-          <p>¿Tienes una solución para esta comunidad?</p>
+          <h3>¡Tu talento importa!</h3>
+          <p *ngIf="!isLoggedIn">
+            Regístrate como profesional para proponer una solución técnica a
+            esta comunidad.
+          </p>
+          <p *ngIf="isLoggedIn">
+            ¿Tienes una propuesta técnica para este problema?
+          </p>
+
           <button
+            *ngIf="!isLoggedIn"
+            mat-raised-button
+            color="accent"
+            class="full-width-btn"
+            routerLink="/register"
+          >
+            REGISTRARME PARA COLABORAR
+          </button>
+
+          <button
+            *ngIf="isLoggedIn"
             mat-raised-button
             color="primary"
-            class="full-width"
+            class="full-width-btn"
             [routerLink]="['/send-proposal', problem._id]"
           >
             ENVIAR PROPUESTA TÉCNICA
           </button>
         </mat-card>
-      </div>
+      </aside>
     </div>
   </div>
 </div>

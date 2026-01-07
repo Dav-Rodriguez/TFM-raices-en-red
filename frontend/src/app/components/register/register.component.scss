@@ -33,6 +33,19 @@
     }
   }
 
+  .phone-row {
+    display: flex;
+    gap: 10px;
+
+    .phone-code {
+      width: 35%;
+    }
+
+    .phone-number {
+      width: 65%;
+    }
+  }
+
   mat-card-actions {
     display: flex;
     flex-direction: column;

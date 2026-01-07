@@ -1,0 +1,138 @@
+<div class="landing-container">
+  <header class="hero-banner">
+    <div class="overlay">
+      <h1>Conectando Raíces para un Futuro Sostenible</h1>
+      <p>
+        Unimos comunidades con desafíos ambientales y profesionales expertos en
+        Soluciones Basadas en la Naturaleza (SbN).
+      </p>
+    </div>
+  </header>
+
+  <div class="content-padding">
+    <section class="section-container how-it-works">
+      <div class="section-title">
+        <h2>Tu camino hacia el impacto ambiental</h2>
+        <p>
+          Tres pasos para transformar una problemática en una solución basada en
+          la naturaleza.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <mat-icon>search</mat-icon>
+          <h4>Explora</h4>
+          <p>
+            Descubre problemáticas reales o busca técnicas en el repositorio
+            SbN.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <mat-icon>groups</mat-icon>
+          <h4>Conecta</h4>
+          <p>
+            Las comunidades proponen desafíos y los profesionales ofrecen su
+            talento.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <mat-icon>auto_awesome</mat-icon>
+          <h4>Transforma</h4>
+          <p>
+            Generen un "Match" y comiencen a trabajar en soluciones sostenibles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container user-matrix">
+      <h4>Únete a la plataforma</h4>
+      <div class="registration-grid">
+        <mat-card class="access-card" [routerLink]="['/register']">
+          <mat-icon color="primary">diversity_1</mat-icon>
+          <h3>Comunidad</h3>
+          <p>Publica problemáticas y encuentra apoyo técnico.</p>
+          <span class="cta">Registrarse →</span>
+        </mat-card>
+
+        <mat-card class="access-card" [routerLink]="['/register']">
+          <mat-icon color="accent">psychology</mat-icon>
+          <h3>Profesional</h3>
+          <p>Aporta tus conocimientos y formula soluciones.</p>
+          <span class="cta">Registrarse →</span>
+        </mat-card>
+      </div>
+
+      <div class="login-actions">
+        <button mat-stroked-button color="primary" [routerLink]="['/login']">
+          LOGIN COMUNIDAD
+        </button>
+        <button mat-stroked-button color="accent" [routerLink]="['/login']">
+          LOGIN PROFESIONAL
+        </button>
+      </div>
+    </section>
+
+    <mat-card class="repo-banner-card" [routerLink]="['/repository']">
+      <mat-icon>menu_book</mat-icon>
+      <div class="text">
+        <h3>Explorar Repositorio SbN</h3>
+        <p>Conoce técnicas y soluciones documentadas.</p>
+      </div>
+    </mat-card>
+
+    <section class="section-container">
+      <h4>Explorar por categorías</h4>
+      <div class="category-grid">
+        <mat-card
+          class="cat-card"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ categoryProject: 'Agua' }"
+        >
+          <mat-icon>opacity</mat-icon><span>Agua</span>
+        </mat-card>
+        <mat-card
+          class="cat-card"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ categoryProject: 'Ambiente' }"
+        >
+          <mat-icon>eco</mat-icon><span>Ambiente</span>
+        </mat-card>
+        <mat-card
+          class="cat-card"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ categoryProject: 'Alimentación' }"
+        >
+          <mat-icon>restaurant</mat-icon><span>Alimentación</span>
+        </mat-card>
+        <mat-card
+          class="cat-card"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ categoryProject: 'Hábitat' }"
+        >
+          <mat-icon>home</mat-icon><span>Hábitat</span>
+        </mat-card>
+        <mat-card
+          class="cat-card"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ categoryProject: 'Riesgos Climáticos' }"
+        >
+          <mat-icon>thunderstorm</mat-icon><span>Riesgos</span>
+        </mat-card>
+        <mat-card
+          class="cat-card"
+          [routerLink]="['/explore-problems']"
+          [queryParams]="{ categoryProject: 'Fauna' }"
+        >
+          <mat-icon>pets</mat-icon><span>Fauna</span>
+        </mat-card>
+      </div>
+    </section>
+  </div>
+</div>

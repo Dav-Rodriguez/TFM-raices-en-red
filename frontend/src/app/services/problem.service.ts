@@ -30,16 +30,24 @@ export class ProblemService {
     });
   }
 
-  // Obtener todas las publicaciones (Usuario B)
+  // Obtener todas las publicaciones (Usuario B/Público)
   getAllProblems(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl, { headers: this.getHeaders() });
+    const token = localStorage.getItem('token');
+    if (token) {
+      return this.http.get<any[]>(this.apiUrl, { headers: this.getHeaders() });
+    }
+    return this.http.get<any[]>(this.apiUrl); // Petición pública sin headers
   }
 
   //Obtener el ID de cada problemática para la ficha individual
   getProblemById(id: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`, {
-      headers: this.getHeaders(),
-    });
+    const token = localStorage.getItem('token');
+    if (token) {
+      return this.http.get<any>(`${this.apiUrl}/${id}`, {
+        headers: this.getHeaders(),
+      });
+    }
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
   // Envío de propuestas

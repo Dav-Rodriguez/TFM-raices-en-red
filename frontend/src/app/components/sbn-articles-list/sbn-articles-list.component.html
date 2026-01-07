@@ -1,0 +1,55 @@
+<div class="articles-container">
+  <header class="articles-hero">
+    <div class="overlay">
+      <p class="pre-title">REPOSITORIO TÉCNICO</p>
+      <h1>Conoce soluciones para la {{ categoryTitle }}</h1>
+    </div>
+  </header>
+
+  <div class="content-padding">
+    <section class="results-section">
+      <h2 class="category-indicator">{{ categoryTitle }}</h2>
+
+      <div class="articles-stack">
+        <mat-card
+          class="article-card"
+          *ngFor="let article of filteredArticles"
+          [routerLink]="['/sbn-detail', article.id]"
+        >
+          <div class="card-horizontal-layout">
+            <div class="thumbnail-container">
+              <img
+                [src]="article.img || 'assets/placeholder-repo.jpg'"
+                alt="Miniatura"
+              />
+            </div>
+            <div class="text-content">
+              <h3>{{ article.title }}</h3>
+              <p class="summary">{{ article.summary }}</p>
+              <span class="read-more">Leer artículo completo →</span>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="no-results" *ngIf="filteredArticles.length === 0">
+        <mat-icon>search_off</mat-icon>
+        <p>Próximamente más artículos en esta categoría.</p>
+      </div>
+    </section>
+
+    <section class="conversion-block">
+      <div class="cta-banner">
+        <h4>¿Quieres pasar del conocimiento a la acción?</h4>
+        <div class="cta-actions">
+          <button mat-raised-button color="primary" routerLink="/register">
+            SOY COMUNIDAD
+          </button>
+          <button mat-raised-button color="accent" routerLink="/register">
+            SOY PROFESIONAL
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

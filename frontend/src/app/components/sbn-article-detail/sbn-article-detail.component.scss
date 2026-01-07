@@ -1,0 +1,131 @@
+.article-detail {
+  background: white;
+
+  .hero-header {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .article-content {
+    max-width: 700px; // Ancho óptimo para lectura
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: #2e7d32;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .main-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1b5e20;
+      line-height: 1.1;
+      margin-bottom: 30px;
+    }
+
+    .intro-text {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #444;
+      line-height: 1.5;
+      border-left: 4px solid #a5d6a7;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .subheadline {
+      font-size: 1.8rem;
+      color: #2e7d32;
+      margin: 40px 0 20px;
+      font-weight: 700;
+    }
+
+    // EFECTO BREAKING GRID (A sangre)
+    .immersive-figure {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      background: #f1f8e9;
+      padding: 20px 0;
+
+      img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+      }
+      figcaption {
+        max-width: 700px;
+        margin: 15px auto 0;
+        text-align: center;
+        font-style: italic;
+        color: #666;
+        padding: 0 20px;
+      }
+    }
+
+    .conclusion-box {
+      background: #f1f8e9;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 50px;
+      p {
+        margin-bottom: 0;
+        font-weight: 600;
+        color: #1b5e20;
+      }
+    }
+
+    .conversion-section {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid #eee;
+      text-align: center;
+
+      h3 {
+        font-size: 1.6rem;
+        color: #1b5e20;
+        margin-bottom: 10px;
+      }
+      .cta-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+        button {
+          padding: 10px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+// Tablet/Desktop
+@media (min-width: 768px) {
+  .article-content .conversion-section .cta-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

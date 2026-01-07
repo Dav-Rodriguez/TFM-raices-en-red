@@ -37,7 +37,7 @@ export class ExploreProblemsComponent implements OnInit {
   ngOnInit(): void {
     // Escucha los cambios en los parámetros de la URL
     this.route.queryParams.subscribe((params) => {
-      this.selectedCategory = params['category'] || '';
+      this.selectedCategory = params['categoryProject'] || '';
       this.loadProblems();
     });
   }
@@ -63,6 +63,7 @@ export class ExploreProblemsComponent implements OnInit {
     } else {
       this.selectedGroups.push(group);
     }
+    this.selectedGroups = [...this.selectedGroups];
     this.applyFilters();
   }
 
@@ -83,6 +84,11 @@ export class ExploreProblemsComponent implements OnInit {
   resetFilters() {
     this.selectedCategory = '';
     this.selectedGroups = [];
-    this.filteredProblems = this.allProblems;
+    this.applyFilters();
+  }
+
+  onGroupSelect(event: any) {
+    this.selectedGroups = event.value;
+    this.applyFilters();
   }
 }

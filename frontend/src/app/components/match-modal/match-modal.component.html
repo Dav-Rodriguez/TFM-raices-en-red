@@ -31,7 +31,9 @@
           <p><strong>Especialidad:</strong> {{ data.proposal.specialty }}</p>
           <p><mat-icon>email</mat-icon> {{ data.proposal.proposer.email }}</p>
           <p>
-            <mat-icon>smartphone</mat-icon> {{ data.proposal.proposer.phone }}
+            <mat-icon>smartphone</mat-icon>
+            {{ data.proposal.proposer.phoneCode }}
+            {{ data.proposal.proposer.phoneNumber }}
           </p>
         </div>
       </div>
@@ -65,7 +67,8 @@
           </p>
           <p>
             <mat-icon>smartphone</mat-icon>
-            {{ data.proposal.problem.user.phone }}
+            {{ data.proposal.problem.user.phoneCode }}
+            {{ data.proposal.problem.user.phoneNumber }}
           </p>
         </div>
       </div>

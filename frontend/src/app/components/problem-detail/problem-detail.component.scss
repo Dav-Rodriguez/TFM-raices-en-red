@@ -1,122 +1,187 @@
-/* Explore Problems Styles */
-.explore-hero {
-  height: 200px;
-  background: url("/assets/explore-bg.jpg") center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .overlay {
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
+.detail-container {
+  background-color: #fff;
+  min-height: 100vh;
+
+  .detail-hero {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      padding: 40px;
+      color: white;
+      h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        font-weight: 800;
+      }
+    }
+  }
+
+  .content-padding {
+    padding: 30px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  // Fila de datos maestros
+  .master-data {
     display: flex;
-    align-items: center;
-    padding: 0 20px;
-    color: white;
-  }
-}
-
-.filter-system {
-  margin: 20px 0;
-  .filter-group {
-    margin-bottom: 25px;
-    label {
-      font-weight: 600;
-      display: block;
-      margin-bottom: 10px;
-      color: #2e7d32;
+    justify-content: space-between;
+    padding: 20px 0;
+    .community-info,
+    .location-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      mat-icon {
+        color: #2e7d32;
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+      }
+      .label {
+        font-size: 0.75rem;
+        color: #666;
+        text-transform: uppercase;
+      }
+      p {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
     }
   }
-}
 
-.category-grid {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  .cat-card {
-    min-width: 100px;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid transparent;
-    &.active {
-      border-color: #2e7d32;
-      background: #e8f5e9;
+  // Matriz de Taxonomía
+  .taxonomy-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 30px 0;
+
+    .tax-item {
+      mat-icon {
+        font-size: 18px;
+        vertical-align: middle;
+        color: #2e7d32;
+        margin-right: 8px;
+      }
+      .tag-project {
+        color: #2e7d32;
+        font-weight: 700;
+      }
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .tag-pill {
+        background: #e0e0e0;
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        &.help {
+          background: #e3f2fd;
+          color: #1565c0;
+          border: 1px solid #bbdefb;
+        }
+      }
     }
+  }
+
+  // Propuesta de valor
+  .exchange-box {
+    display: flex;
+    gap: 15px;
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #2e7d32;
     mat-icon {
-      display: block;
-      margin: 0 auto 5px;
       color: #2e7d32;
     }
-    span {
-      font-size: 0.8rem;
-      font-weight: 500;
+    p {
+      margin: 0;
+      font-style: italic;
+      color: #1b5e20;
+    }
+  }
+
+  // Galería
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+    img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .empty-gallery {
+      text-align: center;
+      padding: 40px;
+      border: 2px dashed #ccc;
+      border-radius: 12px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  // Sidebar de acción
+  .cta-card {
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    h3 {
+      color: #2e7d32;
+      font-weight: 700;
+    }
+    p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+    .full-width-btn {
+      width: 100%;
+      padding: 12px;
+      font-weight: 700;
     }
   }
 }
 
-/* Problem Detail Styles */
-.detail-hero {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  .overlay {
-    height: 100%;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    color: white;
+// Responsive
+@media (max-width: 768px) {
+  .master-data {
+    flex-direction: column;
+    gap: 15px;
   }
-}
-
-.technical-pills {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin: 25px 0;
-  .pill {
-    background: #f1f8e9;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border-left: 4px solid #2e7d32;
-    .label {
-      display: block;
-      font-size: 0.7rem;
-      color: #666;
-      text-transform: uppercase;
-    }
-    .value {
-      font-weight: 600;
-      color: #333;
+  .detail-hero {
+    height: 250px;
+    h1 {
+      font-size: 1.5rem !important;
     }
   }
-}
-
-.gallery-row {
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  margin-top: 15px;
-  img,
-  .img-placeholder {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    object-fit: cover;
-    background: #eee;
+  .action-sidebar {
+    margin-top: 30px;
   }
 }
 
-// Media Queries para la Ficha
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .main-grid {
     display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 40px;
+    grid-template-columns: 1fr 350px;
+    gap: 50px;
   }
   .action-sidebar {
     position: sticky;

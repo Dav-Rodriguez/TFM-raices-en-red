@@ -1,0 +1,60 @@
+<div class="repository-container">
+  <header class="repo-hero">
+    <div class="overlay">
+      <h1>Repositorio de Conocimiento SbN</h1>
+      <p>
+        Explora soluciones técnicas documentadas para transformar territorios a
+        través de la naturaleza.
+      </p>
+    </div>
+  </header>
+
+  <div class="content-padding">
+    <section class="discovery-section">
+      <div class="section-intro">
+        <h2>Categorías Técnicas</h2>
+        <p>
+          Selecciona un área de interés para ver artículos y guías
+          especializadas.
+        </p>
+      </div>
+
+      <div class="category-grid">
+        <div
+          class="category-card"
+          *ngFor="let cat of categories"
+          [routerLink]="['/sbn-results', cat.id]"
+        >
+          <div class="card-icon">
+            <mat-icon>{{ cat.icon }}</mat-icon>
+          </div>
+          <div class="card-footer">
+            <span>{{ cat.name }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="conversion-gateway">
+      <div class="cta-grid">
+        <div class="cta-card community">
+          <mat-icon>home_work</mat-icon>
+          <h3>¿Eres una Comunidad?</h3>
+          <p>Publica tus problemáticas y encuentra apoyo técnico experto.</p>
+          <button mat-flat-button color="primary" routerLink="/register">
+            REGISTRAR MI COMUNIDAD
+          </button>
+        </div>
+
+        <div class="cta-card professional">
+          <mat-icon>architecture</mat-icon>
+          <h3>¿Eres Profesional?</h3>
+          <p>Aporta tu conocimiento en proyectos de impacto real.</p>
+          <button mat-flat-button color="accent" routerLink="/register">
+            REGISTRARME COMO VOLUNTARIO
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
