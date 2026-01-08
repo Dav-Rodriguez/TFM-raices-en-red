@@ -1,9 +1,11 @@
+@import "variables";
+
 .register-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: $bg-app;
   padding: 20px;
 
   .register-card {
@@ -11,12 +13,23 @@
     width: 100%;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: $surface-card;
+    border-radius: 8px;
   }
 
   mat-card-header {
     margin-bottom: 20px;
     justify-content: center;
     text-align: center;
+
+    mat-card-title {
+      color: $text-main;
+      font-weight: 600;
+    }
+
+    mat-card-subtitle {
+      color: $text-muted;
+    }
   }
 
   .full-width {
@@ -52,19 +65,44 @@
     gap: 10px;
     padding: 16px 0;
 
-    button {
+    button[color="primary"] {
       width: 100%;
       padding: 10px;
+      background-color: $accent-color !important;
+      color: $on-accent !important;
+
+      &:disabled {
+        background-color: rgba(0, 0, 0, 0.12) !important;
+        color: rgba(0, 0, 0, 0.26) !important;
+      }
+    }
+
+    a[mat-button] {
+      color: $secondary-color !important;
+      text-decoration: none;
+
+      &:hover {
+        background-color: rgba($secondary-color, 0.05);
+      }
     }
   }
 }
 
 /* --- RESPONSIVIDAD --- */
 
-// Responsividad para móviles
 @media (max-width: 600px) {
   .row {
     flex-direction: column;
     gap: 0;
+  }
+
+  .register-container {
+    padding: 10px;
+    align-items: flex-start;
+
+    .register-card {
+      box-shadow: none;
+      border-radius: 4px;
+    }
   }
 }

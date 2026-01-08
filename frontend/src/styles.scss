@@ -1,4 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@import "styles/variables";
+
+// 1. Reset y Estilos Base
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: $bg-app;
+  color: $text-main;
+}
+
+// 2. Unificación de Botones Material
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary {
+  background-color: $primary-color !important;
+  color: $on-primary !important;
+}
+
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent {
+  background-color: $accent-color !important;
+  color: $on-accent !important;
+}
+
+// 3. Estilos de Títulos Globales
+h1 {
+  color: $white;
+}
+
+h2,
+h3 {
+  color: $primary-color;
+  font-weight: 700;
+}
+
+// 4. Clase Global para Tarjetas
+.custom-card {
+  background: $surface-card;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba($primary-color, 0.1);
+}

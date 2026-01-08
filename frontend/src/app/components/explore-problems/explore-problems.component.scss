@@ -1,15 +1,17 @@
+@import "variables";
+
 .explore-container {
-  background-color: #f8f9fa;
+  background-color: $bg-app;
   min-height: 100vh;
 
   .explore-hero {
     height: 220px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("/assets/explore-bg.jpg") center/cover;
+      url("/assets/explore-bg.png") center/cover;
     display: flex;
     align-items: center;
     padding: 0 40px;
-    color: white;
+    color: $white;
     h1 {
       font-size: 2rem;
       font-weight: 700;
@@ -25,7 +27,7 @@
   }
 
   .filter-system {
-    background: white;
+    background: $surface-card;
     padding: 20px;
     border-radius: 15px;
     margin-top: -40px;
@@ -34,7 +36,7 @@
 
     label {
       font-weight: 600;
-      color: #2e7d32;
+      color: $secondary-color;
       display: block;
       margin-bottom: 10px;
     }
@@ -62,21 +64,20 @@
       padding: 15px 5px;
       -webkit-overflow-scrolling: touch;
 
-      // Scrollbar siempre visible y sutil
-      scrollbar-width: thin; // Firefox
-      scrollbar-color: #2e7d32 #f1f1f1;
+      scrollbar-width: thin;
+      scrollbar-color: $secondary-color $bg-light;
 
       &::-webkit-scrollbar {
-        height: 4px; // fina
+        height: 4px;
       }
 
       &::-webkit-scrollbar-track {
-        background: #f1f1f1;
+        background: $bg-light;
         border-radius: 10px;
       }
 
       &::-webkit-scrollbar-thumb {
-        background: #2e7d32;
+        background: $secondary-color;
         border-radius: 10px;
       }
 
@@ -88,22 +89,22 @@
         border-radius: 12px;
         text-align: center;
         cursor: pointer;
-        background: white;
+        background: $surface-card;
         transition: all 0.3s ease;
 
         &:hover {
-          border-color: #2e7d32;
+          border-color: $secondary-color;
           transform: translateY(-2px);
         }
 
         &.active {
-          background: #e8f5e9;
-          border-color: #2e7d32;
-          box-shadow: 0 4px 10px rgba(46, 125, 50, 0.15);
+          background: rgba($secondary-color, 0.1);
+          border-color: $secondary-color;
+          box-shadow: 0 4px 10px rgba($secondary-color, 0.15);
         }
 
         mat-icon {
-          color: #2e7d32;
+          color: $secondary-color;
           margin-bottom: 5px;
         }
 
@@ -111,14 +112,27 @@
           font-size: 0.8rem;
           display: block;
           font-weight: 500;
+          color: $text-main;
         }
       }
     }
   }
 
+  .reset-container {
+    button[color="warn"] {
+      color: $accent-color !important;
+
+      mat-icon {
+        color: $accent-color !important;
+      }
+    }
+  }
+
   .custom-chip {
-    background: #f1f1f1 !important;
+    background: $bg-light !important;
     font-size: 0.8rem !important;
+    color: $text-main !important;
+
     mat-icon {
       font-size: 16px !important;
       height: 16px !important;
@@ -126,10 +140,10 @@
     }
   }
 
-  // Tarjeta Horizontal (Layout Stack)
   .problem-item-card {
     margin-bottom: 20px;
     border-radius: 12px;
+    background-color: $surface-card;
     transition: transform 0.2s;
     cursor: pointer;
     &:hover {
@@ -150,25 +164,25 @@
       .info {
         flex: 1;
         h3 {
-          color: #2e7d32;
+          color: $primary-color;
           margin: 0 0 10px 0;
         }
         .community {
           font-size: 0.85rem;
-          color: #666;
+          color: $text-muted;
           display: flex;
           align-items: center;
           gap: 5px;
         }
         .excerpt {
           font-size: 0.9rem;
-          color: #444;
+          color: $text-main;
           margin: 10px 0;
           line-height: 1.4;
         }
         .tag-sbn {
-          background: #f1f8e9;
-          color: #2e7d32;
+          background: rgba($secondary-color, 0.1);
+          color: $secondary-color;
           padding: 4px 12px;
           border-radius: 15px;
           font-size: 0.75rem;
@@ -180,11 +194,13 @@
 }
 
 @media (max-width: 600px) {
-  .card-horizontal-layout {
-    flex-direction: column;
-    .thumb {
-      width: 100% !important;
-      height: 180px !important;
+  .explore-container {
+    .card-horizontal-layout {
+      flex-direction: column;
+      .thumb {
+        width: 100% !important;
+        height: 180px !important;
+      }
     }
   }
 }

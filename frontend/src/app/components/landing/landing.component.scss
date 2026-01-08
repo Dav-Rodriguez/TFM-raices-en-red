@@ -1,14 +1,15 @@
+@import "variables";
+
 .landing-container {
-  background-color: #f8f9fa; // Mismo fondo que el Dashboard
+  background-color: $bg-app;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
 
-  // Hero Banner unificado
   .hero-banner {
     height: 350px;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("/assets/hero-bg.jpg") center/cover;
-    color: white;
+      url("/assets/hero-bg.png") center/cover;
+    color: $white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,29 +32,28 @@
 
   .content-padding {
     padding: 40px 20px;
-    max-width: 1000px; // Un poco más ancho que el dashboard para la landing
+    max-width: 1000px;
     margin: 0 auto;
   }
 
   .section-container {
     margin-bottom: 60px;
     h4 {
-      border-left: 5px solid #2e7d32;
+      border-left: 5px solid $secondary-color;
       padding-left: 15px;
       margin-bottom: 25px;
       font-weight: 600;
-      color: #333;
+      color: $text-main;
     }
   }
 
-  // Estilo de Pasos (Step Cards)
   .steps-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 
     .step-card {
-      background: white;
+      background: $surface-card;
       padding: 30px;
       border-radius: 15px;
       text-align: center;
@@ -64,8 +64,8 @@
         position: absolute;
         top: 15px;
         right: 15px;
-        background: #e8f5e9;
-        color: #2e7d32;
+        background: rgba($secondary-color, 0.1);
+        color: $secondary-color;
         width: 30px;
         height: 30px;
         border-radius: 50%;
@@ -79,22 +79,21 @@
         font-size: 45px;
         width: 45px;
         height: 45px;
-        color: #2e7d32;
+        color: $secondary-color;
         margin-bottom: 15px;
       }
       h4 {
         margin-bottom: 10px;
-        color: #333;
+        color: $text-main;
       }
       p {
         font-size: 0.9rem;
-        color: #666;
+        color: $text-muted;
         line-height: 1.4;
       }
     }
   }
 
-  // User Matrix Cards (Cuadradas)
   .registration-grid {
     display: flex;
     gap: 25px;
@@ -102,7 +101,7 @@
 
     .access-card {
       flex: 1;
-      aspect-ratio: 1 / 1; // Fuerza forma cuadrada
+      aspect-ratio: 1 / 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -125,17 +124,17 @@
         margin-bottom: 15px;
       }
       h3 {
-        color: #2e7d32;
+        color: $secondary-color;
         margin-bottom: 10px;
       }
       p {
         font-size: 0.85rem;
-        color: #777;
+        color: $text-muted;
         margin-bottom: 15px;
       }
       .cta {
         font-weight: bold;
-        color: #2e7d32;
+        color: $secondary-color;
       }
     }
   }
@@ -149,10 +148,9 @@
     }
   }
 
-  // Banner Repositorio
   .repo-banner-card {
-    background: #2e7d32;
-    color: white;
+    background: $secondary-color;
+    color: $white;
     display: flex;
     align-items: center;
     gap: 25px;
@@ -172,6 +170,7 @@
     }
     h3 {
       margin: 0;
+      color: $white;
     }
     p {
       margin: 5px 0 0 0;
@@ -179,7 +178,6 @@
     }
   }
 
-  // Grid de categorías (Cuadrados pequeños)
   .category-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -197,10 +195,10 @@
       transition: background 0.3s;
 
       &:hover {
-        background-color: #e8f5e9;
+        background-color: rgba($secondary-color, 0.1);
       }
       mat-icon {
-        color: #2e7d32;
+        color: $secondary-color;
         margin-bottom: 8px;
       }
       span {

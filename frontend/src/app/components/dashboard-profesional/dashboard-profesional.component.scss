@@ -1,5 +1,7 @@
+@import "variables";
+
 .dashboard-container {
-  background-color: #f8f9fa;
+  background-color: $bg-app; // Antes #f8f9fa
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
 
@@ -8,7 +10,7 @@
     height: 220px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url("/assets/hero-bg.jpg") center/cover;
-    color: white;
+    color: $white;
     display: flex;
     align-items: center;
     padding: 0 30px;
@@ -40,6 +42,7 @@
     margin-bottom: 30px;
     border-radius: 15px;
     padding: 20px;
+    background-color: $surface-card;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 
     .profile-layout {
@@ -52,20 +55,22 @@
 
         h3 {
           margin: 0 0 10px 0;
-          color: #2e7d32;
+          color: $primary-color; // Antes #2e7d32
           font-weight: 600;
         }
         p {
           text-align: justify;
           line-height: 1.5;
-          color: #555;
+          color: $text-muted; // Antes #555
           margin-bottom: 15px;
         }
 
-        // Botón Actualizar Perfil
-        button {
+        // Botón Actualizar Perfil (Atributo color="accent" en HTML)
+        button[color="accent"] {
           margin-top: 10px;
           padding: 5px 20px;
+          color: $primary-color !important;
+          border-color: $primary-color !important;
         }
       }
 
@@ -80,7 +85,7 @@
           border-radius: 12px;
           aspect-ratio: 1/1;
           object-fit: cover;
-          border: 3px solid #eee;
+          border: 3px solid $bg-light; // Antes #eee
         }
       }
     }
@@ -101,10 +106,13 @@
     }
   }
 
-  .full-width-btn {
+  // Botón Explorar Repositorio SbN
+  .repo-btn {
     width: 100%;
     margin: 20px 0;
     padding: 15px;
+    background-color: $secondary-color !important;
+    color: $white !important;
   }
 
   // Secciones de Publicaciones y Categorías
@@ -112,11 +120,11 @@
     margin-top: 40px;
 
     h4 {
-      border-left: 5px solid #2e7d32;
+      border-left: 5px solid $secondary-color; // Antes #2e7d32
       padding-left: 15px;
       margin-bottom: 20px;
       font-weight: 600;
-      color: #333;
+      color: $text-main; // Antes #333
     }
   }
 
@@ -124,6 +132,7 @@
   .item-card {
     margin-bottom: 20px;
     padding: 15px;
+    background-color: $surface-card;
     transition: transform 0.2s;
 
     &:hover {
@@ -145,13 +154,13 @@
         flex: 1;
         h5 {
           margin: 0 0 8px 0;
-          color: #333;
+          color: $text-main; // Antes #333
           font-size: 1.1rem;
         }
         p {
           text-align: justify;
           font-size: 0.9rem;
-          color: #666;
+          color: $text-muted; // Antes #666
           margin-bottom: 10px;
         }
         .edit-btn {
@@ -168,14 +177,13 @@
     gap: 15px;
     padding: 15px 5px;
 
-    // Esconder barra de scroll estética
     &::-webkit-scrollbar {
       display: none;
     }
 
     .category-item {
       min-width: 100px;
-      background: white;
+      background: $white;
       padding: 20px 10px;
       border-radius: 12px;
       text-align: center;
@@ -186,13 +194,14 @@
         font-size: 30px;
         width: 30px;
         height: 30px;
-        color: #2e7d32;
+        color: $secondary-color; // Antes #2e7d32
         margin-bottom: 10px;
       }
       span {
         display: block;
         font-weight: 500;
         font-size: 0.85rem;
+        color: $text-main;
       }
     }
   }
@@ -201,6 +210,7 @@
     margin-bottom: 15px;
     padding: 15px;
     border-radius: 10px;
+    background-color: $surface-card;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
 
     .tracking-layout {
@@ -213,12 +223,12 @@
       flex: 1;
       h5 {
         margin: 0 0 8px 0;
-        color: #333;
+        color: $text-main; // Antes #333
         font-weight: 600;
       }
       .excerpt {
         font-size: 0.85rem;
-        color: #666;
+        color: $text-muted; // Antes #666
         margin-bottom: 12px;
         line-height: 1.4;
       }
@@ -239,12 +249,12 @@
             box-shadow: 0 0 5px #fbc02d;
           }
           &.aceptada {
-            background-color: #2e7d32;
-            box-shadow: 0 0 5px #2e7d32;
+            background-color: $success; // Antes #2e7d32
+            box-shadow: 0 0 5px $success;
           }
           &.rechazada {
-            background-color: #d32f2f;
-            box-shadow: 0 0 5px #d32f2f;
+            background-color: $error; // Antes #d32f2f
+            box-shadow: 0 0 5px $error;
           }
         }
 
@@ -252,7 +262,7 @@
           font-size: 0.75rem;
           font-weight: 700;
           text-transform: uppercase;
-          color: #444;
+          color: $text-muted; // Antes #444
         }
       }
     }
@@ -277,10 +287,10 @@
 
     &.clickable-match {
       cursor: pointer;
-      border-left: 5px solid #2e7d32;
+      border-left: 5px solid $success; // Antes #2e7d32
 
       &:hover {
-        background-color: #f1f8e9;
+        background-color: rgba($success, 0.05); // Antes #f1f8e9
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
       }
@@ -291,7 +301,7 @@
       align-items: center;
       gap: 5px;
       font-size: 0.7rem;
-      color: #2e7d32;
+      color: $success; // Antes #2e7d32
       font-weight: 600;
       margin-bottom: 5px;
       text-transform: uppercase;
@@ -307,7 +317,6 @@
 
 /* --- RESPONSIVIDAD (Media Queries) --- */
 
-// TABLETS (hasta 768px)
 @media (max-width: 768px) {
   .dashboard-container {
     .hero-banner h1 {
@@ -319,7 +328,6 @@
   }
 }
 
-// MÓVILES (hasta 480px)
 @media (max-width: 480px) {
   .dashboard-container {
     .hero-banner {

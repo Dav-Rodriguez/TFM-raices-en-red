@@ -28,7 +28,7 @@ router.get("/me", auth, async (req, res) => {
 });
 
 // GET /api/problems - Obtener TODAS las publicaciones (Para Usuario B)
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const problems = await Problem.find().sort({ createdAt: -1 });
         res.json(problems);
@@ -38,7 +38,7 @@ router.get("/", auth, async (req, res) => {
 });
 
 // GET /api/problems/:id - Obtener una sola problemática
-router.get("/:id", auth, async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
         const problem = await Problem.findById(req.params.id);
         if (!problem) return res.status(404).json({ msg: "Problemática no encontrada" });

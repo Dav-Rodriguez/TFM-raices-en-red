@@ -27,7 +27,7 @@ router.get("/received", auth, async (req, res) => {
 
         // Buscar las propuestas que apunten a esos IDs y traer info del Usuario B (proposer)
         const proposals = await Proposal.find({ problem: { $in: problemIds } })
-            .populate("proposer", "names lastnames")
+            .populate("proposer", "names lastnames email phoneCode phoneNumber specialty")
             .populate("problem", "title")
             .sort({ createdAt: -1 });
 
@@ -62,9 +62,16 @@ router.patch("/:id/status", auth, async (req, res) => {
 // GET /api/proposals/my-proposals - Obtener propuestas enviadas por el Usuario B
 router.get("/my-proposals", auth, async (req, res) => {
     try {
-        // Buscar propuestas donde el proposer sea el ID del token actual
         const proposals = await Proposal.find({ proposer: req.user.id })
-            .populate("problem", "title mainImage") // Traer información del proyecto destino
+            // Populate anidado para entrar al problema y de ahí al usuario dueño (A) para ver su contacto
+            .populate({
+                path: "problem",
+                select: "title mainImage user",
+                populate: {
+                    path: "user",
+                    select: "names lastnames email phone communityName",
+                },
+            })
             .sort({ createdAt: -1 });
 
         res.json(proposals);
@@ -73,12 +80,21 @@ router.get("/my-proposals", auth, async (req, res) => {
     }
 });
 
-// GET /api/proposals/:id - Obtener una propuesta por su ID (para la vista de detalle)
+// GET /api/proposals/:id - Obtener una propuesta por su ID (Vista de detalle)
 router.get("/:id", auth, async (req, res) => {
     try {
         const proposal = await Proposal.findById(req.params.id)
-            .populate("proposer", "names lastnames communityName") // Datos del profesional
-            .populate("problem", "title mainImage"); // Datos de la problemática original
+            // Traer contacto completo del Profesional
+            .populate("proposer", "names lastnames email phoneCode phoneNumber specialty")
+            // Populate anidado para traer contacto completo del dueño de la problemática
+            .populate({
+                path: "problem",
+                select: "title mainImage user",
+                populate: {
+                    path: "user",
+                    select: "names lastnames email phone communityName",
+                },
+            });
 
         if (!proposal) return res.status(404).json({ msg: "Propuesta no encontrada" });
         res.json(proposal);

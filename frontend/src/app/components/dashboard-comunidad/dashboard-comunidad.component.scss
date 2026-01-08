@@ -1,14 +1,15 @@
+@import "variables";
+
 .dashboard-container {
-  background-color: #f8f9fa;
+  background-color: $bg-app;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
 
-  // Hero Banner
   .hero-banner {
     height: 220px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url("/assets/hero-bg.jpg") center/cover;
-    color: white;
+    color: $white;
     display: flex;
     align-items: center;
     padding: 0 30px;
@@ -27,19 +28,18 @@
     }
   }
 
-  // Contenedor principal de contenido
   .content-padding {
     padding: 20px;
     max-width: 900px;
     margin: 0 auto;
   }
 
-  // Card de Perfil
   .profile-card {
     margin-top: -50px;
     margin-bottom: 30px;
     border-radius: 15px;
     padding: 20px;
+    background-color: $surface-card;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 
     .profile-layout {
@@ -52,20 +52,24 @@
 
         h3 {
           margin: 0 0 10px 0;
-          color: #2e7d32;
+          color: $primary-color;
           font-weight: 600;
         }
         p {
           text-align: justify;
           line-height: 1.5;
-          color: #555;
+          color: $text-muted;
           margin-bottom: 15px;
         }
 
-        // Botón Actualizar Perfil
-        button {
-          margin-top: 10px;
-          padding: 5px 20px;
+        button[color="accent"] {
+          background-color: transparent !important;
+          border-color: $primary-color !important;
+          color: $primary-color !important;
+
+          &:hover {
+            background-color: rgba($primary-color, 0.05) !important;
+          }
         }
       }
 
@@ -80,13 +84,12 @@
           border-radius: 12px;
           aspect-ratio: 1/1;
           object-fit: cover;
-          border: 3px solid #eee;
+          border: 3px solid $bg-light;
         }
       }
     }
   }
 
-  // Botones de Acción
   .action-buttons {
     display: flex;
     gap: 20px;
@@ -99,6 +102,16 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+
+    button[color="primary"].action-btn {
+      background-color: $accent-color !important;
+      color: $on-accent !important;
+    }
+
+    .repo-btn {
+      background-color: $secondary-color !important;
+      color: $white !important;
+    }
   }
 
   .full-width-btn {
@@ -107,23 +120,22 @@
     padding: 15px;
   }
 
-  // Secciones de Publicaciones y Categorías
   .section-container {
     margin-top: 40px;
 
     h4 {
-      border-left: 5px solid #2e7d32;
+      border-left: 5px solid $secondary-color;
       padding-left: 15px;
       margin-bottom: 20px;
       font-weight: 600;
-      color: #333;
+      color: $text-main;
     }
   }
 
-  // Card de Item - Problemática
   .item-card {
     margin-bottom: 20px;
     padding: 15px;
+    background-color: $surface-card;
     transition: transform 0.2s;
 
     &:hover {
@@ -145,37 +157,36 @@
         flex: 1;
         h5 {
           margin: 0 0 8px 0;
-          color: #333;
+          color: $text-main;
           font-size: 1.1rem;
         }
         p {
           text-align: justify;
           font-size: 0.9rem;
-          color: #666;
+          color: $text-muted;
           margin-bottom: 10px;
         }
         .edit-btn {
           margin-top: 5px;
+          color: $primary-color;
         }
       }
     }
   }
 
-  // Carrusel de Categorías Profesional
   .category-scroll {
     display: flex;
     overflow-x: auto;
     gap: 15px;
     padding: 15px 5px;
 
-    // Esconder barra de scroll estética
     &::-webkit-scrollbar {
       display: none;
     }
 
     .category-item {
       min-width: 100px;
-      background: white;
+      background: $white;
       padding: 20px 10px;
       border-radius: 12px;
       text-align: center;
@@ -186,25 +197,27 @@
         font-size: 30px;
         width: 30px;
         height: 30px;
-        color: #2e7d32;
+        color: $secondary-color;
         margin-bottom: 10px;
       }
       span {
         display: block;
         font-weight: 500;
         font-size: 0.85rem;
+        color: $text-main;
       }
     }
   }
 
   .notification-card {
     margin-bottom: 15px;
-    border-left: 4px solid #2e7d32;
+    border-left: 4px solid $primary-color;
     cursor: pointer;
+    background-color: $surface-card;
     transition: background 0.2s;
 
     &:hover {
-      background: #f1f8e9;
+      background: rgba($primary-color, 0.05);
     }
 
     .notification-layout {
@@ -218,17 +231,17 @@
       flex: 1;
       h5 {
         margin: 0;
-        color: #333;
+        color: $text-main;
         font-weight: 600;
       }
       .target-problem {
         font-size: 0.8rem;
-        color: #2e7d32;
+        color: $secondary-color;
         margin: 4px 0;
       }
       .excerpt {
         font-size: 0.85rem;
-        color: #666;
+        color: $text-muted;
         margin: 0;
       }
     }
@@ -259,21 +272,20 @@
           color: #fbc02d;
         }
         &.aceptada {
-          background: #c8e6c9;
-          color: #2e7d32;
+          background: rgba($success, 0.15);
+          color: $success;
         }
         &.rechazada {
-          background: #ffccbc;
-          color: #d84315;
+          background: rgba($error, 0.15);
+          color: $error;
         }
       }
     }
   }
 }
 
-/* --- RESPONSIVIDAD (Media Queries) --- */
+/* --- RESPONSIVIDAD --- */
 
-// TABLETS (hasta 768px)
 @media (max-width: 768px) {
   .dashboard-container {
     .hero-banner h1 {
@@ -285,7 +297,6 @@
   }
 }
 
-// MÓVILES (hasta 480px)
 @media (max-width: 480px) {
   .dashboard-container {
     .hero-banner {

@@ -1,3 +1,5 @@
+@import "variables";
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -6,6 +8,13 @@
   top: 0;
   z-index: 1000;
   padding: 0 20px;
+
+  background-color: $secondary-color !important;
+  color: $on-primary !important;
+
+  mat-icon {
+    color: $on-primary;
+  }
 }
 
 .logo {
@@ -27,6 +36,6 @@
 // Responsividad para móvil
 @media (max-width: 600px) {
   .user-name {
-    display: none; // Ocultar nombre en móviles muy pequeños para ahorrar espacio
+    display: none;
   }
 }

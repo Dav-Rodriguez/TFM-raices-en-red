@@ -1,6 +1,8 @@
+@import "variables";
+
 .global-footer {
-  background-color: #263238;
-  color: #eceff1;
+  background-color: darken($primary-color, 15%);
+  color: $on-primary;
   padding: 40px 20px 20px;
   margin-top: 50px;
 
@@ -14,7 +16,7 @@
     .footer-logo {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #81c784;
+      color: $secondary-color;
       display: block;
       margin-bottom: 10px;
     }
@@ -22,12 +24,12 @@
       max-width: 600px;
       font-size: 0.9rem;
       line-height: 1.6;
-      color: #b0bec5;
+      color: rgba($on-primary, 0.7);
     }
   }
 
   mat-divider {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba($on-primary, 0.1);
     margin: 20px 0;
   }
 
@@ -38,7 +40,7 @@
     gap: 20px;
 
     .footer-links a {
-      color: #eceff1;
+      color: $on-primary;
       font-size: 0.85rem;
     }
 
@@ -50,7 +52,7 @@
       display: flex;
       gap: 10px;
       a {
-        color: #eceff1;
+        color: $on-primary;
       }
     }
   }
@@ -61,8 +63,8 @@
     justify-content: space-between;
     align-items: center;
     font-size: 0.75rem;
-    color: #90a4ae;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba($on-primary, 0.5);
+    border-top: 1px solid rgba($on-primary, 0.05);
     padding-top: 20px;
 
     .legal-links {

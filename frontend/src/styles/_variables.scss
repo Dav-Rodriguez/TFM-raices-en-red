@@ -1,0 +1,26 @@
+// Colores de Marca
+$primary-color: #1c5a6d;
+$secondary-color: #60a26b;
+$accent-color: #ed6d54;
+$third-color: #263238;
+
+// Colores de Interfaz
+$bg-app: #f8f9f4; // Fondo general
+$surface-card: #ffffff; // Fondo de tarjetas
+$text-main: #161616; // Texto principal
+$text-muted: #555555; // Texto secundario
+$bg-light: #f8f9f4; // Hueso suave
+$white: #ffffff;
+
+// Colores de Estado
+$success: #2e7d32;
+$error: #c62828;
+
+// On-Colors (Para accesibilidad WCAG)
+$on-primary: #ffffff;
+$on-accent: #ffffff;
+
+// MIXINS PARA ACCESIBILIDAD
+@mixin transition-standard {
+  transition: all 0.3s ease;
+}
