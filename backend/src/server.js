@@ -8,13 +8,12 @@ const app = express();
 // Configuración de CORS
 const allowedOrigins = [
     "http://localhost:4200", // Angular local
-    "https://tu-proyecto.netlify.app", // URL de Netlify
+    "https://raices-en-red.netlify.app", // URL de Netlify
 ];
 
 app.use(
     cors({
         origin: function (origin, callback) {
-            // Permitir peticiones sin origen o si el origen está en whitelist
             if (!origin || allowedOrigins.indexOf(origin) !== -1) {
                 callback(null, true);
             } else {
