@@ -1,0 +1,8 @@
+El repositorio completo se encuentra en gitHub:
+
+https://github.com/Dav-Rodriguez/TFM-raices-en-red.git
+
+Desplegado en:
+https://tfm-raices-en-red-backend.onrender.com
+
+raices-en-red.netlify.app
